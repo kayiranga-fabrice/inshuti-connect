@@ -9,43 +9,41 @@ import {
   Smartphone,
   Users,
   HeartPulse,
-  GraduationCap,
   HelpingHand,
   PlayCircle,
-  Zap,
   ExternalLink,
   Bot,
   Globe,
   ShieldCheck,
 } from "lucide-react";
 
-const COMMON_SEARCHES = ["Anxiety", "Sleep", "Exams", "Relationships"] as const;
+const COMMON_SEARCHES = ["Contraception", "STIs", "Consent", "Pregnancy"] as const;
 
 const TOPICS = [
-  { label: "Anxiety", icon: <HeartPulse className="w-6 h-6" /> },
-  { label: "Stress", icon: <Sparkles className="w-6 h-6" /> },
-  { label: "Friendships", icon: <Users className="w-6 h-6" /> },
-  { label: "SRH", icon: <Heart className="w-6 h-6" /> },
-  { label: "School", icon: <GraduationCap className="w-6 h-6" /> },
-  { label: "Wellbeing", icon: <HelpingHand className="w-6 h-6" /> },
+  { label: "Contraception", icon: <ShieldCheck className="w-6 h-6" /> },
+  { label: "STIs", icon: <HeartPulse className="w-6 h-6" /> },
+  { label: "Consent", icon: <Users className="w-6 h-6" /> },
+  { label: "Puberty", icon: <Sparkles className="w-6 h-6" /> },
+  { label: "Pregnancy", icon: <Heart className="w-6 h-6" /> },
+  { label: "Relationships", icon: <HelpingHand className="w-6 h-6" /> },
   { label: "View all", icon: <ArrowRight className="w-6 h-6" />, highlight: true },
 ] as const;
 
 const ARTICLES = [
   {
-    title: "School anxiety: coping when school feels overwhelming",
+    title: "Contraception options: what students should know",
     excerpt:
-      "If school feels impossible right now, you are not alone. Here is how to take small steps and find support.",
+      "Condoms, pills, implants, and emergency contraception — how they work and where to get reliable information.",
   },
   {
-    title: "Healthy vs unhealthy relationships",
+    title: "Understanding consent in relationships",
     excerpt:
-      "Learn signs of respect, boundaries, and when a relationship may be harming your wellbeing.",
+      "Consent must be freely given and reversible. Learn what healthy boundaries look like.",
   },
   {
-    title: "Quiz: Are you burning out?",
+    title: "STIs: prevention, testing, and when to seek care",
     excerpt:
-      "Feeling drained or unmotivated? Reflect on your stress levels and what might help you recover.",
+      "Many STIs have no symptoms. Testing and condoms protect you and your partners.",
   },
 ] as const;
 
@@ -56,13 +54,13 @@ export default function Home() {
       <section className="bg-primary text-white pt-8 pb-16 relative overflow-hidden">
         <SiteContainer className="relative z-10">
           <p className="text-secondary font-black uppercase tracking-[0.2em] text-xs mb-4">
-            Whatever&apos;s on your mind
+            Sexual & reproductive health
           </p>
           <h1 className="text-3xl sm:text-4xl md:text-[3.25rem] font-black leading-[1.1] mb-5 max-w-4xl">
-            Ask Inshuti Connect
+            SRH support, anonymously
           </h1>
           <p className="text-white/80 text-lg font-medium mb-5 max-w-2xl">
-            Get anonymous answers from trained student responders — mental health and SRH support for Rwanda.
+            Ask about contraception, STIs, consent, puberty, pregnancy, and relationships — private answers from trained student responders in Rwanda.
           </p>
 
           <form
@@ -77,7 +75,7 @@ export default function Home() {
               <input
                 type="text"
                 name="q"
-                placeholder="How can we help you today?"
+                placeholder="Ask about SRH (e.g. contraception, STIs)…"
                 className="w-full h-14 md:h-16 pl-12 pr-4 text-slate-900 text-lg font-bold focus:outline-none placeholder:text-slate-400"
               />
             </div>
@@ -90,7 +88,7 @@ export default function Home() {
           </form>
 
           <p className="text-white/60 text-sm mb-3">
-            Anonymous questions only — not a diagnosis tool. For crisis support, use{" "}
+            Anonymous SRH information only — not a substitute for a clinic visit. For urgent help, use{" "}
             <Link href="/urgent-help" className="text-secondary underline font-bold">
               urgent help
             </Link>
@@ -117,6 +115,26 @@ export default function Home() {
         <h2 className="sr-only">Other ways we can help</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <Link
+            href="/chatbot"
+            className="bg-white p-4 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between group hover:-translate-y-1 transition-all"
+          >
+            <div>
+              <div className="bg-indigo-50 p-3 rounded-2xl w-fit mb-4">
+                <Bot className="w-7 h-7 text-indigo-600" />
+              </div>
+              <h3 className="text-lg font-black mb-2 text-slate-900 group-hover:text-primary">
+                SRH chatbot
+              </h3>
+              <p className="text-slate-500 text-sm font-medium leading-relaxed">
+                Instant answers on contraception, STIs, consent, and puberty.
+              </p>
+            </div>
+            <span className="mt-4 flex items-center gap-1 text-xs font-black uppercase text-indigo-600">
+              Chat now <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </span>
+          </Link>
+
+          <Link
             href="/ask"
             className="bg-white p-4 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between group hover:-translate-y-1 transition-all"
           >
@@ -125,10 +143,10 @@ export default function Home() {
                 <MessageSquare className="w-7 h-7 text-emerald-600" />
               </div>
               <h3 className="text-lg font-black mb-2 text-slate-900 group-hover:text-primary">
-                Ask a question
+                Ask an SRH question
               </h3>
               <p className="text-slate-500 text-sm font-medium leading-relaxed">
-                Free, anonymous, 1:1 support from trained student responders.
+                Free, anonymous answers from trained student responders.
               </p>
             </div>
             <span className="mt-4 flex items-center gap-1 text-xs font-black uppercase text-emerald-600">
@@ -168,32 +186,29 @@ export default function Home() {
                 Kinyarwanda portal
               </h3>
               <p className="text-slate-500 text-sm font-medium leading-relaxed">
-                Amakuru y&apos;ubuzima bw&apos;imyororokere n&apos;ibitekerezo mu Kinyarwanda.
+                Amakuru y&apos;ubuzima bw&apos;imyororokere (SRH) mu Kinyarwanda.
               </p>
             </div>
             <span className="mt-4 flex items-center gap-1 text-xs font-black uppercase text-amber-600">
               Soma <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
+        </div>
 
+        <div className="grid sm:grid-cols-2 gap-3 mt-4">
           <Link
-            href="/chatbot"
-            className="bg-white p-4 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between group hover:-translate-y-1 transition-all"
+            href="/install"
+            className="flex items-center justify-between bg-primary/5 border border-primary/10 rounded-2xl px-4 py-3 font-black text-sm text-primary hover:bg-primary/10"
           >
-            <div>
-              <div className="bg-indigo-50 p-3 rounded-2xl w-fit mb-4">
-                <Bot className="w-7 h-7 text-indigo-600" />
-              </div>
-              <h3 className="text-lg font-black mb-2 text-slate-900 group-hover:text-primary">
-                SRH chatbot
-              </h3>
-              <p className="text-slate-500 text-sm font-medium leading-relaxed">
-                Quick, private answers about sexual and reproductive health.
-              </p>
-            </div>
-            <span className="mt-4 flex items-center gap-1 text-xs font-black uppercase text-indigo-600">
-              Chat now <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-            </span>
+            Install on your phone
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+          <Link
+            href="/messages"
+            className="flex items-center justify-between bg-indigo-50 border border-indigo-100 rounded-2xl px-4 py-3 font-black text-sm text-indigo-800 hover:bg-indigo-100"
+          >
+            Get SRH SMS tips
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </SiteContainer>
@@ -201,7 +216,7 @@ export default function Home() {
       {/* Topics + articles */}
       <section className="py-8 bg-slate-50">
         <SiteContainer>
-          <h2 className="text-3xl md:text-4xl font-black mb-6">Browse topics</h2>
+          <h2 className="text-3xl md:text-4xl font-black mb-6">Browse SRH topics</h2>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2 mb-8">
             {TOPICS.map((topic) => (
@@ -220,7 +235,7 @@ export default function Home() {
             ))}
           </div>
 
-          <h3 className="text-2xl font-black mb-5">Articles, guides and stories</h3>
+          <h3 className="text-2xl font-black mb-5">SRH guides & stories</h3>
           <div className="grid md:grid-cols-3 gap-5">
             {ARTICLES.map((article) => (
               <Link key={article.title} href="/ask" className="group">
@@ -252,10 +267,10 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-black mb-6">Videos</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              "Staying strong when life feels heavy",
+              "How to use condoms correctly",
               "Understanding consent and boundaries",
-              "Managing exam stress",
-              "Talking to someone you trust",
+              "What to expect during puberty",
+              "When to visit a health centre for SRH care",
             ].map((title) => (
               <div key={title} className="group">
                 <div className="aspect-video bg-slate-900 rounded-2xl relative flex items-center justify-center mb-3">
@@ -279,7 +294,7 @@ export default function Home() {
               <ShieldCheck className="w-10 h-10 text-primary mb-4" />
               <h3 className="text-2xl font-black mb-3">About Inshuti Connect</h3>
               <p className="text-slate-600 mb-6 font-medium leading-relaxed">
-                Learn how we work with ASOME and student responders to offer anonymous mental health and SRH support in Rwanda.
+                Learn how we work with ASOME and student responders to offer anonymous SRH education and support in Rwanda.
               </p>
               <Link
                 href="/about"
@@ -291,7 +306,7 @@ export default function Home() {
             <div className="bg-rose-50 p-5 md:p-6 rounded-3xl border border-rose-100">
               <h3 className="text-2xl font-black mb-3 text-rose-900">Need help right now?</h3>
               <p className="text-rose-800/80 mb-6 font-medium leading-relaxed">
-                Crisis lines, grounding exercises, and urgent resources when you cannot wait for a response.
+                GBV support, emergency lines, and urgent SRH resources when you cannot wait for a response.
               </p>
               <Link
                 href="/urgent-help"
@@ -310,10 +325,10 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row gap-5 items-stretch">
             <div className="flex-1 space-y-4">
               <h2 className="text-3xl md:text-4xl font-black leading-tight">
-                Support shouldn&apos;t require giving up your privacy
+                SRH questions shouldn&apos;t cost you your privacy
               </h2>
               <p className="text-lg text-slate-600 font-medium leading-relaxed">
-                Many students avoid help because of stigma or fear of being identified. Inshuti Connect is built for anonymous, peer-led support — no names required.
+                Many students avoid asking about sexual health because of stigma or fear of being identified. Inshuti Connect is built for anonymous SRH support — no names required.
               </p>
               <Link
                 href="/ask"
@@ -346,7 +361,7 @@ export default function Home() {
             <div className="relative z-10 max-w-2xl mx-auto text-center">
               <h2 className="text-2xl md:text-4xl font-black mb-4">Stay in touch</h2>
               <p className="text-slate-400 mb-8 font-medium">
-                Wellbeing tips and updates from Inshuti Connect (coming soon).
+                SRH tips and updates from Inshuti Connect (coming soon).
               </p>
               <div className="flex flex-col sm:flex-row gap-2">
                 <input

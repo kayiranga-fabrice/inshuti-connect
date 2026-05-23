@@ -23,8 +23,8 @@ const TEAM = [
   },
   {
     name: 'NDUWIMANA Divin',
-    role: 'Mental Health Lead',
-    desc: 'Student of Clinical Psychology. Dedicated to reducing mental health stigma and providing crisis support.',
+    role: 'Peer Education & Support Lead',
+    desc: 'Student of Clinical Psychology. Supports students with stigma-free SRH education and safe referral pathways.',
     affiliation: 'University of Rwanda (UR)',
     highlight: false
   },
@@ -75,7 +75,7 @@ export default function AboutPage() {
             Our Vision, Mission <br />& The Team Behind It
           </h1>
           <p className="text-lg md:text-xl text-slate-600 font-semibold leading-relaxed">
-            Inshuti Connect is a student-led platform providing safe, confidential, and completely anonymous support for mental health and Sexual & Reproductive Health (SRH).
+            Inshuti Connect is a student-led platform for safe, confidential, and completely anonymous Sexual & Reproductive Health (SRH) support.
           </p>
         </div>
       </section>
@@ -103,7 +103,7 @@ export default function AboutPage() {
             </div>
             <h3 className="text-2xl font-black mb-4 text-slate-900">Our Vision</h3>
             <p className="text-slate-500 font-medium leading-relaxed">
-              We envision a stigma-free environment in Rwandan educational communities where every student has safe, anonymous, and instant access to mental health guidance and sexual health education. No barriers, no judgment, and absolute privacy.
+              We envision a stigma-free environment in Rwandan schools and universities where every student has safe, anonymous access to accurate sexual and reproductive health information. No barriers, no judgment, and absolute privacy.
             </p>
           </div>
           <div className="mt-8 flex items-center gap-1 text-xs font-black uppercase text-teal-600">
@@ -120,7 +120,7 @@ export default function AboutPage() {
             </div>
             <h3 className="text-2xl font-black mb-4 text-slate-900">Our Mission</h3>
             <p className="text-slate-500 font-medium leading-relaxed">
-              To empower students through peer-led professional support, clinically verified health resources, and secure digital tools. By partnering with leading medical institutes, we ensure our users receive accurate advice while maintaining 100% confidentiality.
+              To empower students through peer-led SRH support, clinically verified sexual health resources, and secure digital tools. By partnering with leading medical institutes, we ensure accurate, non-judgmental information while maintaining 100% confidentiality.
             </p>
           </div>
           <div className="mt-8 flex items-center gap-1 text-xs font-black uppercase text-emerald-600">
@@ -161,7 +161,7 @@ export default function AboutPage() {
             Meet the Responders & Team
           </h2>
           <p className="text-slate-500 font-semibold text-sm">
-            We are a group of medical students, software developers, and mental health advocates working together.
+            We are medical students, SRH advocates, and developers building anonymous sexual health support for Rwanda.
           </p>
         </div>
 

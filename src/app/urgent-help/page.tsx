@@ -63,7 +63,7 @@ export default function UrgentHelpPage() {
               Need Help Right Now?
             </h1>
             <p className="text-slate-600 font-semibold leading-relaxed">
-              If you are in danger, feeling overwhelmed, or experiencing a crisis, please reach out to one of the resources below. You do not have to go through this alone.
+              If you are in danger, experienced sexual violence, need urgent pregnancy or STI care, or feel unsafe, use the resources below. You do not have to go through this alone.
             </p>
           </div>
         </div>
@@ -81,7 +81,7 @@ export default function UrgentHelpPage() {
             </span>
             <h3 className="text-2xl font-black text-slate-900">Inshuti Connect Urgent Helpline</h3>
             <p className="text-slate-500 text-sm font-medium leading-relaxed">
-              Call or text for immediate anonymous support, counseling, and guidance from our medical and mental health responders.
+              Call or text for immediate anonymous SRH support and guidance from our trained student responders.
             </p>
           </div>
           <div className="w-full md:w-auto">
@@ -98,16 +98,16 @@ export default function UrgentHelpPage() {
           </div>
         </div>
 
-        {/* RBC Mental Health Support */}
+        {/* RBC Health Helpline */}
         <div className="bg-white rounded-[2rem] p-8 shadow-lg border border-slate-100 flex flex-col justify-between">
           <div className="space-y-4">
             <div className="w-12 h-12 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600">
               <Phone className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="text-xl font-black text-slate-955">RBC Mental Health Hotline</h4>
+              <h4 className="text-xl font-black text-slate-900">RBC Health Helpline</h4>
               <p className="text-slate-400 text-sm font-medium mt-1 leading-relaxed">
-                Rwanda Biomedical Centre's official helpline for suicide prevention, depression, and mental health crises.
+                Rwanda Biomedical Centre helpline for health emergencies and referral to care (including sexual health services).
               </p>
             </div>
           </div>
@@ -203,7 +203,7 @@ export default function UrgentHelpPage() {
           <div className="space-y-3 mb-6">
             <h3 className="text-2xl font-black text-slate-900">Box Breathing Guide</h3>
             <p className="text-slate-500 text-xs font-semibold max-w-xs mx-auto leading-relaxed">
-              Use this simple exercise to slow your heart rate and ease sudden anxiety or panic.
+              Use this simple exercise to slow your heart rate when you feel overwhelmed or panicked.
             </p>
           </div>
 

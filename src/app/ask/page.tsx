@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default function AskPage() {
   const [message, setMessage] = useState('');
-  const [category, setCategory] = useState('Mental Health');
+  const [category, setCategory] = useState('Contraception');
   const [ageRange, setAgeRange] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [trackingCode, setTrackingCode] = useState<string | null>(null);
@@ -117,18 +117,18 @@ export default function AskPage() {
               Back to Home
             </Link>
             <h1 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight tracking-tight uppercase italic">
-              Ask <br />
-              <span className="text-primary underline decoration-secondary decoration-8 underline-offset-8">Inshuti</span>
+              Ask about <br />
+              <span className="text-primary underline decoration-secondary decoration-8 underline-offset-8">SRH</span>
             </h1>
             <p className="text-xl text-slate-600 leading-relaxed font-medium">
-              Whatever is on your mind, you can ask us anonymously. Our student responders are here to help.
+              Contraception, STIs, consent, puberty, pregnancy, relationships — ask anonymously. Trained student responders reply with accurate, non-judgmental information.
             </p>
             
             <div className="space-y-4 pt-4">
               {[
                 { icon: <ShieldCheck className="w-6 h-6 text-primary" />, title: "100% Anonymous", desc: "No names, no logins, no tracking." },
-                { icon: <HeartPulse className="w-6 h-6 text-primary" />, title: "Peer Support", desc: "Trained students who understand you." },
-                { icon: <MessageSquare className="w-6 h-6 text-primary" />, title: "Expert Vetted", desc: "Safe, accurate health information." }
+                { icon: <HeartPulse className="w-6 h-6 text-primary" />, title: "SRH-focused", desc: "Built for sexual and reproductive health questions." },
+                { icon: <MessageSquare className="w-6 h-6 text-primary" />, title: "Expert Vetted", desc: "Safe, accurate SRH information — not a clinic substitute." }
               ].map((item, i) => (
                 <div key={i} className="flex gap-4 p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
                   <div className="bg-primary/5 p-3 rounded-2xl h-fit">{item.icon}</div>
@@ -147,17 +147,24 @@ export default function AskPage() {
               <div className="space-y-8">
                 {/* Category */}
                 <div>
-                  <label className="block text-xs font-black text-slate-400 uppercase tracking-widest mb-4">What's the topic?</label>
-                  <div className="grid grid-cols-2 gap-4">
-                    {['Mental Health', 'SRH'].map((cat) => (
+                  <label className="block text-xs font-black text-slate-400 uppercase tracking-widest mb-4">SRH topic</label>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                    {[
+                      'Contraception',
+                      'STIs',
+                      'Consent',
+                      'Puberty',
+                      'Pregnancy',
+                      'Other SRH',
+                    ].map((cat) => (
                       <button
                         key={cat}
                         type="button"
                         onClick={() => setCategory(cat)}
-                        className={`py-4 px-6 rounded-2xl border-4 transition-all font-black text-sm uppercase tracking-widest ${
-                          category === cat 
-                            ? 'border-secondary bg-white text-primary shadow-lg' 
-                            : 'border-slate-50 bg-slate-50 text-slate-300 hover:border-slate-100'
+                        className={`py-3 px-2 rounded-xl border-2 transition-all font-black text-[10px] sm:text-xs uppercase tracking-wider ${
+                          category === cat
+                            ? 'border-secondary bg-white text-primary shadow-md'
+                            : 'border-slate-50 bg-slate-50 text-slate-400 hover:border-slate-100'
                         }`}
                       >
                         {cat}

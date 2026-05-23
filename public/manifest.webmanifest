@@ -1,0 +1,27 @@
+{
+  "name": "Inshuti Connect",
+  "short_name": "Inshuti",
+  "description": "Anonymous sexual and reproductive health (SRH) support for students in Rwanda.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0F382B",
+  "theme_color": "#0F382B",
+  "lang": "en",
+  "categories": ["health", "education"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
