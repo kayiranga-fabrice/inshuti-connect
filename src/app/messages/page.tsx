@@ -118,11 +118,6 @@ export default function MessagesPage() {
               {message}
             </p>
           )}
-
-          <p className="text-[10px] text-slate-400 font-medium leading-relaxed">
-            Admin: run <code className="bg-slate-100 px-1 rounded">supabase/sms_subscribers.sql</code> then
-            connect Africa&apos;s Talking (see .env.example).
-          </p>
         </form>
 
         <div className="space-y-4">
