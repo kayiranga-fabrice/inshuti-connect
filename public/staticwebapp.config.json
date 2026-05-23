@@ -1,0 +1,13 @@
+{
+  "trailingSlash": "always",
+  "routes": [
+    {
+      "route": "/admin",
+      "methods": ["GET", "POST"],
+      "allowedRoles": ["anonymous", "authenticated"]
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  }
+}
