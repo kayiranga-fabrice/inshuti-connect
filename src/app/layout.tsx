@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { MessageSquareHeart, AlertCircle, Search, Menu } from "lucide-react";
 import { SiteContainer } from "@/components/SiteContainer";
 
-const inter = Inter({ subsets: ["latin"] });
+/** Geometric sans-serif — matches bold fintech-style headings site-wide */
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Inshuti Connect | A Safe Place for Support",
@@ -18,8 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} antialiased bg-white text-slate-900`}>
+    <html lang="en" className={montserrat.variable}>
+      <body className={`${montserrat.className} font-sans antialiased bg-white text-slate-900`}>
         {/* Urgent Help Banner */}
         <div className="bg-rose-600 text-white py-3 sticky top-0 z-[60] shadow-md">
           <SiteContainer className="flex items-center justify-between gap-2">
