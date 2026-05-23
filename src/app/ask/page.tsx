@@ -1,17 +1,39 @@
 'use client';
 
-import { useState } from 'react';
+import { Suspense, useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { Send, CheckCircle2, Copy, AlertCircle, ArrowLeft, MessageSquare, ShieldCheck, HeartPulse } from 'lucide-react';
 import Link from 'next/link';
+import { ASK_CATEGORIES, type AskCategory } from '@/lib/srh-content';
 
-export default function AskPage() {
+const CATEGORY_FROM_URL: Record<string, AskCategory> = {
+  menstruation: 'Menstruation',
+  'period-pain': 'Period pain',
+  contraception: 'Contraception',
+  stis: 'STIs',
+  consent: 'Consent',
+  puberty: 'Puberty',
+  pregnancy: 'Pregnancy',
+};
+
+function AskPageContent() {
+  const searchParams = useSearchParams();
   const [message, setMessage] = useState('');
-  const [category, setCategory] = useState('Contraception');
+  const [category, setCategory] = useState<AskCategory>('Menstruation');
   const [ageRange, setAgeRange] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [trackingCode, setTrackingCode] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const cat = searchParams.get('cat');
+    if (cat && CATEGORY_FROM_URL[cat]) {
+      setCategory(CATEGORY_FROM_URL[cat]);
+    }
+    const q = searchParams.get('q');
+    if (q) setMessage(q);
+  }, [searchParams]);
 
   const generateTrackingCode = () => {
     const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -121,7 +143,7 @@ export default function AskPage() {
               <span className="text-primary underline decoration-secondary decoration-8 underline-offset-8">SRH</span>
             </h1>
             <p className="text-xl text-slate-600 leading-relaxed font-medium">
-              Contraception, STIs, consent, puberty, pregnancy, relationships — ask anonymously. Trained student responders reply with accurate, non-judgmental information.
+              Menstruation, period pain, contraception, STIs, consent, puberty, pregnancy — ask anonymously. Trained student responders reply with accurate, non-judgmental SRH information.
             </p>
             
             <div className="space-y-4 pt-4">
@@ -148,15 +170,8 @@ export default function AskPage() {
                 {/* Category */}
                 <div>
                   <label className="block text-xs font-black text-slate-400 uppercase tracking-widest mb-4">SRH topic</label>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                    {[
-                      'Contraception',
-                      'STIs',
-                      'Consent',
-                      'Puberty',
-                      'Pregnancy',
-                      'Other SRH',
-                    ].map((cat) => (
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    {ASK_CATEGORIES.map((cat) => (
                       <button
                         key={cat}
                         type="button"
@@ -238,5 +253,19 @@ export default function AskPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function AskPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-slate-50 flex items-center justify-center font-bold text-slate-400">
+          Loading…
+        </div>
+      }
+    >
+      <AskPageContent />
+    </Suspense>
   );
 }

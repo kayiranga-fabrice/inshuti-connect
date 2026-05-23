@@ -6,6 +6,7 @@ import {
   ArrowLeft, Send, ShieldAlert, Heart, Info, 
   Sparkles, CheckCircle2, AlertTriangle, PhoneCall 
 } from 'lucide-react';
+import { CHATBOT_QUICK_OPTIONS, CHATBOT_RESPONSES, matchChatbotTopic } from '@/lib/srh-content';
 
 interface Message {
   id: string;
@@ -14,28 +15,12 @@ interface Message {
   timestamp: string;
 }
 
-const QUICK_OPTIONS = [
-  { id: 'contraception', label: 'Contraception Options' },
-  { id: 'stis', label: 'STI/STD Prevention' },
-  { id: 'consent', label: 'Consent & Relationships' },
-  { id: 'puberty', label: 'Body Changes & Puberty' },
-  { id: 'hotline', label: 'Emergency Hotline' }
-];
-
-const BOT_RESPONSES: Record<string, string> = {
-  contraception: `Here is reliable information about **Contraception Options**:\n\n1. **Barrier Methods**: Male/female condoms. They prevent both pregnancies and STIs.\n2. **Hormonal Methods**: Daily pills, patches, injections, or implants. They regulate hormones to prevent ovulation.\n3. **Long-Acting Reversible (LARC)**: IUDs (Intrauterine Devices) and hormonal implants. Extremely effective and last 3 to 10 years.\n4. **Emergency Contraceptive Pill (ECP)**: Often called the morning-after pill. It prevents pregnancy if taken up to 72 hours (sometimes up to 120 hours) after unprotected sex. The sooner it is taken, the more effective it is.\n\n*Always consult a healthcare provider to find the method that fits your body.*`,
-  stis: `Here is information on **STIs (Sexually Transmitted Infections)** and prevention:\n\n* **Common STIs**: HIV/AIDS, Gonorrhea, Chlamydia, Syphilis, HPV, and Herpes.\n* **How they spread**: Through unprotected vaginal, anal, or oral sex, or skin-to-skin contact (in some cases like HPV/Herpes).\n* **Prevention**:\n  - Use condoms consistently and correctly.\n  - Regular testing (recommend once a year or with every new partner).\n  - Vaccinations (such as the HPV vaccine to prevent cervical/other cancers).\n* **Note**: Many STIs do not show symptoms initially. Testing is the only way to know for sure. Most STIs are easily cured with antibiotics if caught early.`,
-  consent: `Understanding **Consent & Healthy Relationships** is crucial:\n\nConsent must follow the **F.R.I.E.S.** principle:\n* **F - Freely Given**: Deciding without pressure, manipulation, or under the influence of drugs/alcohol.\n* **R - Reversible**: You can change your mind at any point, even if you previously agreed.\n* **I - Informed**: Knowing exactly what is happening and agreeing to the specific act.\n* **E - Enthusiastic**: An active, positive agreement (wanting to do it, not just giving in).\n* **S - Specific**: Saying yes to one thing does not mean saying yes to other things.\n\n*Remember: A lack of "no" is not a "yes". Consent is respect.*`,
-  puberty: `**Body Changes & Puberty** is a natural transition:\n\n* **What to expect**: Growth spurts, acne/skin changes, body hair growth, body odor, and vocal changes.\n* **Menstruation**: For females, puberty marks the start of periods (menstrual cycle). This is normal and means the body is preparing for potential reproduction.\n* **Nocturnal Emissions**: For males, "wet dreams" are completely normal and happen naturally as sperm production begins.\n* **Emotional shifts**: Hormones affect mood. It is normal to feel more intense emotions or confusion.\n\n*Every body grows at its own pace. Be kind to yourself!*`,
-  hotline: `If you need immediate SRH-related support or are in danger, please contact:\n\n* **Inshuti Connect Urgent Helpline**: **0784538491** (Call/Text)\n* **Gender-Based Violence Support**: **3512**\n* **Rwanda Police Emergency**: **112**\n* **Health helpline (RBC)**: **114**\n* **Child Helpline**: **116**\n\nFor pregnancy concerns, STI testing, or GBV, visit a health centre as soon as you can. All calls are confidential.`
-};
-
 export default function ChatbotPage() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 'welcome',
       sender: 'bot',
-      text: "Hello! I am your Inshuti SRH Assistant. I can answer your questions about sexual health, contraception, relationships, and body changes anonymously. How can I help you today?",
+      text: "Hello! I am your Inshuti SRH Assistant. I can help with menstruation, period pain, contraception, pregnancy questions, STIs, consent, and puberty — anonymously. Tap a topic below or type your question.",
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }
   ]);
@@ -66,17 +51,9 @@ export default function ChatbotPage() {
     setTimeout(() => {
       let replyText = "I'm here to listen. You can select one of the quick options below, or contact our support line at **0784538491** for personalized assistance.";
       
-      const cleanText = text.toLowerCase();
-      if (cleanText.includes('contracept') || cleanText.includes('family plann') || cleanText.includes('condom') || cleanText.includes('pill')) {
-        replyText = BOT_RESPONSES.contraception;
-      } else if (cleanText.includes('sti') || cleanText.includes('std') || cleanText.includes('hiv') || cleanText.includes('infect') || cleanText.includes('aid')) {
-        replyText = BOT_RESPONSES.stis;
-      } else if (cleanText.includes('consent') || cleanText.includes('relationship') || cleanText.includes('abuse') || cleanText.includes('toxic')) {
-        replyText = BOT_RESPONSES.consent;
-      } else if (cleanText.includes('puberty') || cleanText.includes('period') || cleanText.includes('body') || cleanText.includes('grow')) {
-        replyText = BOT_RESPONSES.puberty;
-      } else if (cleanText.includes('hotline') || cleanText.includes('call') || cleanText.includes('phone') || cleanText.includes('emergency') || cleanText.includes('number') || cleanText.includes('contact')) {
-        replyText = BOT_RESPONSES.hotline;
+      const topicKey = matchChatbotTopic(text);
+      if (topicKey && CHATBOT_RESPONSES[topicKey]) {
+        replyText = CHATBOT_RESPONSES[topicKey];
       }
 
       const botMsg: Message = {
@@ -92,7 +69,7 @@ export default function ChatbotPage() {
   };
 
   const handleQuickOptionClick = (optionId: string) => {
-    const option = QUICK_OPTIONS.find(o => o.id === optionId);
+    const option = CHATBOT_QUICK_OPTIONS.find((o) => o.id === optionId);
     if (!option) return;
 
     // Send user message
@@ -110,7 +87,7 @@ export default function ChatbotPage() {
       const botMsg: Message = {
         id: `bot-${Date.now()}`,
         sender: 'bot',
-        text: BOT_RESPONSES[optionId] || "I don't have information on that topic yet.",
+        text: CHATBOT_RESPONSES[optionId] || "I don't have information on that topic yet.",
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
       setMessages(prev => [...prev, botMsg]);
@@ -242,7 +219,7 @@ export default function ChatbotPage() {
         <div className="mb-4">
           <p className="text-xs font-bold text-primary/60 uppercase tracking-widest mb-2 px-2">Tap to ask:</p>
           <div className="flex flex-wrap gap-2">
-            {QUICK_OPTIONS.map((opt) => (
+            {CHATBOT_QUICK_OPTIONS.map((opt) => (
               <button
                 key={opt.id}
                 onClick={() => handleQuickOptionClick(opt.id)}

@@ -128,7 +128,7 @@ export default function MessagesPage() {
         <div className="space-y-4">
           <h2 className="font-black text-lg flex items-center gap-2">
             <MessageSquare className="w-5 h-5 text-primary" />
-            Tip messages (preview)
+            SRH tip messages (preview)
           </h2>
           <p className="text-slate-500 text-sm font-medium">
             Copy a tip to send manually today, or use keywords when SMS is live.

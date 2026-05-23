@@ -35,10 +35,11 @@ export function SiteFooter() {
             <div>
               <h4 className="font-black uppercase tracking-widest text-xs text-slate-500 mb-6">Topics</h4>
               <ul className="space-y-3 text-sm font-bold text-slate-300">
+                <li><Link href="/ask?cat=menstruation" className="hover:text-secondary">Menstruation</Link></li>
+                <li><Link href="/ask?cat=period-pain" className="hover:text-secondary">Period pain</Link></li>
                 <li><Link href="/ask?cat=contraception" className="hover:text-secondary">Contraception</Link></li>
-                <li><Link href="/ask?cat=stis" className="hover:text-secondary">STIs</Link></li>
-                <li><Link href="/ask?cat=consent" className="hover:text-secondary">Consent</Link></li>
                 <li><Link href="/ask?cat=pregnancy" className="hover:text-secondary">Pregnancy</Link></li>
+                <li><Link href="/ask?cat=stis" className="hover:text-secondary">STIs</Link></li>
               </ul>
             </div>
 

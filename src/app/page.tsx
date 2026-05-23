@@ -9,41 +9,42 @@ import {
   Smartphone,
   Users,
   HeartPulse,
-  HelpingHand,
   PlayCircle,
   ExternalLink,
   Bot,
   Globe,
   ShieldCheck,
+  Droplets,
 } from "lucide-react";
+import { HOMEPAGE_SEARCH_SUGGESTIONS } from "@/lib/srh-content";
 
-const COMMON_SEARCHES = ["Contraception", "STIs", "Consent", "Pregnancy"] as const;
+const COMMON_SEARCHES = HOMEPAGE_SEARCH_SUGGESTIONS;
 
 const TOPICS = [
+  { label: "Menstruation", icon: <Droplets className="w-6 h-6" /> },
+  { label: "Period pain", icon: <HeartPulse className="w-6 h-6" /> },
   { label: "Contraception", icon: <ShieldCheck className="w-6 h-6" /> },
-  { label: "STIs", icon: <HeartPulse className="w-6 h-6" /> },
+  { label: "STIs", icon: <Heart className="w-6 h-6" /> },
   { label: "Consent", icon: <Users className="w-6 h-6" /> },
-  { label: "Puberty", icon: <Sparkles className="w-6 h-6" /> },
-  { label: "Pregnancy", icon: <Heart className="w-6 h-6" /> },
-  { label: "Relationships", icon: <HelpingHand className="w-6 h-6" /> },
+  { label: "Pregnancy", icon: <Sparkles className="w-6 h-6" /> },
   { label: "View all", icon: <ArrowRight className="w-6 h-6" />, highlight: true },
 ] as const;
 
 const ARTICLES = [
   {
+    title: "Your first period: what to expect",
+    excerpt:
+      "Cycles, hygiene, pads, and when it is normal — plus when to talk to a nurse or health centre.",
+  },
+  {
+    title: "Period pain: care at home and when to seek help",
+    excerpt:
+      "Cramps are common, but severe pain every month is worth checking with a clinician.",
+  },
+  {
     title: "Contraception options: what students should know",
     excerpt:
-      "Condoms, pills, implants, and emergency contraception — how they work and where to get reliable information.",
-  },
-  {
-    title: "Understanding consent in relationships",
-    excerpt:
-      "Consent must be freely given and reversible. Learn what healthy boundaries look like.",
-  },
-  {
-    title: "STIs: prevention, testing, and when to seek care",
-    excerpt:
-      "Many STIs have no symptoms. Testing and condoms protect you and your partners.",
+      "Condoms, pills, implants, and emergency contraception — how they work and where to get care.",
   },
 ] as const;
 
@@ -60,7 +61,7 @@ export default function Home() {
             SRH support, anonymously
           </h1>
           <p className="text-white/80 text-lg font-medium mb-5 max-w-2xl">
-            Ask about contraception, STIs, consent, puberty, pregnancy, and relationships — private answers from trained student responders in Rwanda.
+            Ask about menstruation, period pain, contraception, STIs, consent, puberty, and pregnancy — private answers from trained student responders in Rwanda.
           </p>
 
           <form
@@ -267,9 +268,9 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-black mb-6">Videos</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
+              "Managing period pain at school",
+              "Period hygiene and pads: the basics",
               "How to use condoms correctly",
-              "Understanding consent and boundaries",
-              "What to expect during puberty",
               "When to visit a health centre for SRH care",
             ].map((title) => (
               <div key={title} className="group">

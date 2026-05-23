@@ -77,15 +77,23 @@ export default function KinyarwandaPage() {
               <ul className="space-y-4 mb-8 text-sm font-bold text-slate-700">
                 <li className="flex items-center gap-3">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                  Amasezerano / impamyabumenyi (Menstruation)
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                  Ububabare bw&apos;amasezerano (Period pain)
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                   Kuboneza urubyaro (Contraception)
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-                  Kwirinda indwara zandurira (STIs)
+                  Inda n&apos;ibizamini by&apos;inda (Pregnancy)
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-                  Imihindagurikire y&apos;umubiri (Puberty)
+                  Kwirinda indwara zandurira (STIs)
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
