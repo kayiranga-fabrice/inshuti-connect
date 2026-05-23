@@ -90,7 +90,7 @@ export default function Home() {
           <h1 className="text-3xl sm:text-4xl md:text-[3.25rem] font-black leading-[1.1] mb-5 max-w-4xl">
             SRH support, anonymously
           </h1>
-          <p className="text-white/80 text-lg font-medium mb-5 max-w-2xl">
+          <p className="text-white/80 text-lg font-medium mb-6 max-w-2xl">
             Ask about menstruation, period pain, contraception, STIs, consent, puberty, and pregnancy — private answers from trained student responders in Rwanda.
           </p>
 
@@ -118,7 +118,7 @@ export default function Home() {
             </button>
           </form>
 
-          <p className="text-white/60 text-sm mb-3">
+          <p className="text-white/60 text-sm mb-4">
             Anonymous SRH information only — not a substitute for a clinic visit. For urgent help, use{" "}
             <Link href="/urgent-help" className="text-secondary underline font-bold">
               urgent help
@@ -142,12 +142,12 @@ export default function Home() {
       </section>
 
       {/* Other ways we can help — overlaps hero like ReachOut */}
-      <SiteContainer className="-mt-12 mb-14 md:mb-16 relative z-20">
+      <SiteContainer className="-mt-10 md:-mt-12 mb-14 md:mb-16 relative z-20">
         <h2 className="sr-only">Other ways we can help</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <Link
             href="/chatbot"
-            className="bg-white p-4 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between group hover:-translate-y-1 transition-all"
+            className="bg-white p-5 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between min-h-[200px] group hover:-translate-y-1 transition-all"
           >
             <div>
               <div className="icon-box mb-4">
@@ -160,14 +160,14 @@ export default function Home() {
                 Instant answers on contraception, STIs, consent, and puberty.
               </p>
             </div>
-            <span className="mt-4 flex items-center gap-1 text-xs link-accent">
+            <span className="mt-5 flex items-center gap-1 text-xs link-accent">
               Chat now <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
 
           <Link
             href="/ask"
-            className="bg-white p-4 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between group hover:-translate-y-1 transition-all"
+            className="bg-white p-5 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between min-h-[200px] group hover:-translate-y-1 transition-all"
           >
             <div>
               <div className="icon-box mb-4">
@@ -180,14 +180,14 @@ export default function Home() {
                 Free, anonymous answers from trained student responders.
               </p>
             </div>
-            <span className="mt-4 flex items-center gap-1 text-xs link-accent">
+            <span className="mt-5 flex items-center gap-1 text-xs link-accent">
               Start <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
 
           <Link
             href="/check"
-            className="bg-white p-4 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between group hover:-translate-y-1 transition-all"
+            className="bg-white p-5 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between min-h-[200px] group hover:-translate-y-1 transition-all"
           >
             <div>
               <div className="icon-box mb-4">
@@ -200,14 +200,14 @@ export default function Home() {
                 Use your private tracking code to read your answer.
               </p>
             </div>
-            <span className="mt-4 flex items-center gap-1 text-xs link-accent">
+            <span className="mt-5 flex items-center gap-1 text-xs link-accent">
               Enter code <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
 
           <Link
             href="/rw"
-            className="bg-white p-4 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between group hover:-translate-y-1 transition-all"
+            className="bg-white p-5 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between min-h-[200px] group hover:-translate-y-1 transition-all"
           >
             <div>
               <div className="icon-box mb-4">
@@ -220,23 +220,23 @@ export default function Home() {
                 Amakuru y&apos;ubuzima bw&apos;imyororokere (SRH) mu Kinyarwanda.
               </p>
             </div>
-            <span className="mt-4 flex items-center gap-1 text-xs link-accent">
+            <span className="mt-5 flex items-center gap-1 text-xs link-accent">
               Soma <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-3 mt-4">
+        <div className="grid sm:grid-cols-2 gap-4 mt-6">
           <Link
             href="/install"
-            className="flex items-center justify-between bg-primary/5 border border-primary/10 rounded-2xl px-4 py-3 font-black text-sm text-primary hover:bg-primary/10"
+            className="flex items-center justify-between bg-primary/5 border border-primary/10 rounded-2xl px-4 py-3.5 font-black text-sm text-primary hover:bg-primary/10"
           >
             Install on your phone
             <ArrowRight className="w-4 h-4" />
           </Link>
           <Link
             href="/messages"
-            className="flex items-center justify-between bg-primary/5 border border-primary/10 rounded-2xl px-4 py-3 font-black text-sm text-primary hover:bg-primary/10"
+            className="flex items-center justify-between bg-primary/5 border border-primary/10 rounded-2xl px-4 py-3.5 font-black text-sm text-primary hover:bg-primary/10"
           >
             Get SRH SMS tips
             <ArrowRight className="w-4 h-4" />
@@ -249,7 +249,7 @@ export default function Home() {
         <SiteContainer>
           <h2 className="text-3xl md:text-4xl font-black mb-10">Browse SRH topics</h2>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 mb-12">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 mb-14">
             {TOPICS.map((topic) => (
               <Link
                 key={topic.label}
@@ -427,7 +427,7 @@ export default function Home() {
         </SiteContainer>
       </section>
 
-      <section className="py-10 md:py-12 border-t border-slate-100">
+      <section className="py-12 md:py-16 border-t border-slate-100">
         <SiteContainer className="text-slate-500 text-sm leading-relaxed space-y-4">
           <p>
             Inshuti Connect values diversity. We are committed to providing a safe, culturally appropriate, and inclusive service for all people, regardless of ethnicity, faith, disability, sexuality, or gender identity.
