@@ -47,3 +47,12 @@ body {
 .urgent-banner {
   @apply bg-urgent text-white py-2 px-4 text-center text-sm font-bold;
 }
+
+/* Unified brand surfaces — green + mint only */
+.icon-box {
+  @apply bg-secondary/40 p-3 rounded-2xl w-fit text-primary;
+}
+
+.link-accent {
+  @apply text-primary font-black uppercase tracking-wide;
+}

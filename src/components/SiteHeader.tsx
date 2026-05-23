@@ -6,12 +6,8 @@ import { MessageSquareHeart, Menu, X } from "lucide-react";
 import { SiteContainer } from "@/components/SiteContainer";
 import { MAIN_NAV } from "@/config/nav";
 
-const accentClass: Record<string, string> = {
-  emerald: "text-emerald-600 hover:text-emerald-800",
-  teal: "text-teal-600 hover:text-teal-800",
-  indigo: "text-indigo-600 hover:text-indigo-800",
-  rose: "text-rose-600 hover:text-rose-800",
-};
+const navLinkClass =
+  "font-bold text-sm text-slate-600 hover:text-primary transition-colors";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -35,15 +31,7 @@ export function SiteHeader() {
 
         <nav className="hidden lg:flex items-center gap-5" aria-label="Main">
           {MAIN_NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`font-bold text-sm transition-colors ${
-                "accent" in item && item.accent
-                  ? accentClass[item.accent]
-                  : "text-slate-600 hover:text-primary"
-              }`}
-            >
+            <Link key={item.href} href={item.href} className={navLinkClass}>
               {item.label}
             </Link>
           ))}
@@ -90,11 +78,7 @@ export function SiteHeader() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className={`block px-4 py-3.5 font-bold border-b border-slate-50 ${
-                  "accent" in item && item.accent
-                    ? accentClass[item.accent]
-                    : "text-slate-800 hover:bg-slate-50"
-                }`}
+                className={`block px-4 py-3.5 font-bold border-b border-slate-50 text-slate-800 hover:bg-slate-50 hover:text-primary`}
                 onClick={() => setOpen(false)}
               >
                 {item.label}
@@ -104,7 +88,7 @@ export function SiteHeader() {
           <li>
             <Link
               href="/install"
-              className="block px-4 py-3.5 font-black text-primary bg-secondary/30"
+              className="block px-4 py-3.5 font-black text-primary bg-secondary/40"
               onClick={() => setOpen(false)}
             >
               Install app on your phone

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SiteContainer } from "@/components/SiteContainer";
 import {
@@ -35,16 +36,45 @@ const ARTICLES = [
     title: "Your first period: what to expect",
     excerpt:
       "Cycles, hygiene, pads, and when it is normal — plus when to talk to a nurse or health centre.",
+    image: "/images/article-students.png",
+    alt: "Rwandan students in school uniforms studying outdoors",
   },
   {
     title: "Period pain: care at home and when to seek help",
     excerpt:
       "Cramps are common, but severe pain every month is worth checking with a clinician.",
+    image: "/images/article-community.png",
+    alt: "Community gathering celebrating health and wellbeing",
   },
   {
     title: "Contraception options: what students should know",
     excerpt:
       "Condoms, pills, implants, and emergency contraception — how they work and where to get care.",
+    image: "/images/article-phone.png",
+    alt: "Young woman using a smartphone for health information",
+  },
+] as const;
+
+const VIDEOS = [
+  {
+    title: "Managing period pain at school",
+    image: "/images/article-students.png",
+    alt: "Students at school in Rwanda",
+  },
+  {
+    title: "Period hygiene and pads: the basics",
+    image: "/images/article-community.png",
+    alt: "Community health education event",
+  },
+  {
+    title: "How to use condoms correctly",
+    image: "/images/article-phone.png",
+    alt: "Young person accessing SRH information on a phone",
+  },
+  {
+    title: "When to visit a health centre for SRH care",
+    image: "/images/article-phones.png",
+    alt: "Two young women using phones to find health support",
   },
 ] as const;
 
@@ -120,8 +150,8 @@ export default function Home() {
             className="bg-white p-4 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between group hover:-translate-y-1 transition-all"
           >
             <div>
-              <div className="bg-indigo-50 p-3 rounded-2xl w-fit mb-4">
-                <Bot className="w-7 h-7 text-indigo-600" />
+              <div className="icon-box mb-4">
+                <Bot className="w-7 h-7" />
               </div>
               <h3 className="text-lg font-black mb-2 text-slate-900 group-hover:text-primary">
                 SRH chatbot
@@ -130,7 +160,7 @@ export default function Home() {
                 Instant answers on contraception, STIs, consent, and puberty.
               </p>
             </div>
-            <span className="mt-4 flex items-center gap-1 text-xs font-black uppercase text-indigo-600">
+            <span className="mt-4 flex items-center gap-1 text-xs link-accent">
               Chat now <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
@@ -140,8 +170,8 @@ export default function Home() {
             className="bg-white p-4 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between group hover:-translate-y-1 transition-all"
           >
             <div>
-              <div className="bg-emerald-50 p-3 rounded-2xl w-fit mb-4">
-                <MessageSquare className="w-7 h-7 text-emerald-600" />
+              <div className="icon-box mb-4">
+                <MessageSquare className="w-7 h-7" />
               </div>
               <h3 className="text-lg font-black mb-2 text-slate-900 group-hover:text-primary">
                 Ask an SRH question
@@ -150,7 +180,7 @@ export default function Home() {
                 Free, anonymous answers from trained student responders.
               </p>
             </div>
-            <span className="mt-4 flex items-center gap-1 text-xs font-black uppercase text-emerald-600">
+            <span className="mt-4 flex items-center gap-1 text-xs link-accent">
               Start <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
@@ -160,8 +190,8 @@ export default function Home() {
             className="bg-white p-4 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between group hover:-translate-y-1 transition-all"
           >
             <div>
-              <div className="bg-teal-50 p-3 rounded-2xl w-fit mb-4">
-                <Smartphone className="w-7 h-7 text-teal-600" />
+              <div className="icon-box mb-4">
+                <Smartphone className="w-7 h-7" />
               </div>
               <h3 className="text-lg font-black mb-2 text-slate-900 group-hover:text-primary">
                 Check my response
@@ -170,7 +200,7 @@ export default function Home() {
                 Use your private tracking code to read your answer.
               </p>
             </div>
-            <span className="mt-4 flex items-center gap-1 text-xs font-black uppercase text-teal-600">
+            <span className="mt-4 flex items-center gap-1 text-xs link-accent">
               Enter code <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
@@ -180,8 +210,8 @@ export default function Home() {
             className="bg-white p-4 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between group hover:-translate-y-1 transition-all"
           >
             <div>
-              <div className="bg-amber-50 p-3 rounded-2xl w-fit mb-4">
-                <Globe className="w-7 h-7 text-amber-600" />
+              <div className="icon-box mb-4">
+                <Globe className="w-7 h-7" />
               </div>
               <h3 className="text-lg font-black mb-2 text-slate-900 group-hover:text-primary">
                 Kinyarwanda portal
@@ -190,7 +220,7 @@ export default function Home() {
                 Amakuru y&apos;ubuzima bw&apos;imyororokere (SRH) mu Kinyarwanda.
               </p>
             </div>
-            <span className="mt-4 flex items-center gap-1 text-xs font-black uppercase text-amber-600">
+            <span className="mt-4 flex items-center gap-1 text-xs link-accent">
               Soma <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
@@ -206,7 +236,7 @@ export default function Home() {
           </Link>
           <Link
             href="/messages"
-            className="flex items-center justify-between bg-indigo-50 border border-indigo-100 rounded-2xl px-4 py-3 font-black text-sm text-indigo-800 hover:bg-indigo-100"
+            className="flex items-center justify-between bg-primary/5 border border-primary/10 rounded-2xl px-4 py-3 font-black text-sm text-primary hover:bg-primary/10"
           >
             Get SRH SMS tips
             <ArrowRight className="w-4 h-4" />
@@ -240,7 +270,15 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {ARTICLES.map((article) => (
               <Link key={article.title} href="/ask" className="group">
-                <div className="aspect-[4/3] bg-slate-200 rounded-3xl mb-4 border border-slate-100" />
+                <div className="relative aspect-[4/3] rounded-3xl mb-4 border border-slate-100 overflow-hidden bg-slate-200">
+                  <Image
+                    src={article.image}
+                    alt={article.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
                 <h4 className="text-xl font-black leading-snug group-hover:text-primary transition-colors underline decoration-secondary decoration-4 underline-offset-4">
                   {article.title}
                 </h4>
@@ -267,17 +305,21 @@ export default function Home() {
         <SiteContainer>
           <h2 className="text-3xl md:text-4xl font-black mb-10">Videos</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              "Managing period pain at school",
-              "Period hygiene and pads: the basics",
-              "How to use condoms correctly",
-              "When to visit a health centre for SRH care",
-            ].map((title) => (
-              <div key={title} className="group">
-                <div className="aspect-video bg-slate-900 rounded-2xl relative flex items-center justify-center mb-3">
-                  <PlayCircle className="w-12 h-12 text-white/50 group-hover:text-white group-hover:scale-110 transition-all" />
+            {VIDEOS.map((video) => (
+              <div key={video.title} className="group">
+                <div className="aspect-video rounded-2xl relative overflow-hidden mb-3 bg-slate-900">
+                  <Image
+                    src={video.image}
+                    alt={video.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover opacity-80 group-hover:opacity-90 transition-opacity"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                    <PlayCircle className="w-12 h-12 text-white/80 group-hover:text-white group-hover:scale-110 transition-all" />
+                  </div>
                 </div>
-                <p className="font-bold text-slate-900 text-sm line-clamp-2">{title}</p>
+                <p className="font-bold text-slate-900 text-sm line-clamp-2">{video.title}</p>
               </div>
             ))}
           </div>
@@ -304,14 +346,14 @@ export default function Home() {
                 About us <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-            <div className="bg-rose-50 p-5 md:p-6 rounded-3xl border border-rose-100">
-              <h3 className="text-2xl font-black mb-3 text-rose-900">Need help right now?</h3>
-              <p className="text-rose-800/80 mb-6 font-medium leading-relaxed">
+            <div className="bg-primary/5 p-5 md:p-6 rounded-3xl border border-primary/15">
+              <h3 className="text-2xl font-black mb-3 text-primary">Need help right now?</h3>
+              <p className="text-slate-600 mb-6 font-medium leading-relaxed">
                 GBV support, emergency lines, and urgent SRH resources when you cannot wait for a response.
               </p>
               <Link
                 href="/urgent-help"
-                className="inline-flex items-center gap-2 bg-rose-600 text-white px-6 py-3 rounded-full font-black hover:bg-rose-700 transition-all"
+                className="inline-flex items-center gap-2 bg-urgent text-white px-6 py-3 rounded-full font-black hover:opacity-90 transition-all"
               >
                 Urgent help <ArrowRight className="w-4 h-4" />
               </Link>

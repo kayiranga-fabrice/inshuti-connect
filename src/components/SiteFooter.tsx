@@ -52,7 +52,7 @@ export function SiteFooter() {
                 <li><Link href="/chatbot" className="hover:text-secondary">SRH Chatbot</Link></li>
                 <li><Link href="/messages" className="hover:text-secondary">SMS tips</Link></li>
                 <li><Link href="/admin" className="hover:text-secondary">Admin</Link></li>
-                <li><Link href="/urgent-help" className="text-rose-400 hover:text-rose-300">Urgent Help</Link></li>
+                  <li><Link href="/urgent-help" className="text-secondary hover:text-white font-extrabold">Urgent Help</Link></li>
               </ul>
             </div>
           </div>

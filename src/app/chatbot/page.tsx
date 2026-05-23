@@ -114,7 +114,7 @@ export default function ChatbotPage() {
         const number = paragraph.match(/^\d+/)![0];
         return (
           <div key={index} className="flex gap-2 mb-2 font-medium">
-            <span className="font-bold text-teal-600">{number}.</span>
+            <span className="font-bold text-primary">{number}.</span>
             <div>{parseBold(content)}</div>
           </div>
         );
@@ -148,15 +148,15 @@ export default function ChatbotPage() {
                 alt="Inshuti Bot Avatar"
                 className="w-10 h-10 rounded-full object-cover border border-slate-200"
               />
-              <span className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full"></span>
+              <span className="absolute bottom-0 right-0 w-3 h-3 bg-secondary border-2 border-white rounded-full"></span>
             </div>
             <div>
               <h2 className="font-black text-sm uppercase tracking-tight">Inshuti SRH Bot</h2>
-              <p className="text-[10px] text-emerald-600 font-bold uppercase tracking-widest">100% Anonymous Support</p>
+              <p className="text-[10px] text-primary font-bold uppercase tracking-widest">100% Anonymous Support</p>
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-2 bg-emerald-50 text-emerald-700 px-3 py-1.5 rounded-full text-xs font-bold border border-emerald-100">
+        <div className="flex items-center gap-2 bg-secondary/40 text-primary px-3 py-1.5 rounded-full text-xs font-bold border border-secondary">
           <CheckCircle2 className="w-4 h-4" /> Secure & Private
         </div>
       </div>
@@ -168,11 +168,11 @@ export default function ChatbotPage() {
         <div className="flex-1 bg-white rounded-[2.5rem] shadow-xl border border-slate-100 p-6 overflow-y-auto mb-4 space-y-6">
           
           {/* Medical Disclaimer */}
-          <div className="bg-amber-50 border border-amber-200/60 rounded-2xl p-4 flex gap-3 text-amber-800 text-xs font-medium">
-            <ShieldAlert className="w-5 h-5 text-amber-600 flex-shrink-0" />
+          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 flex gap-3 text-slate-600 text-xs font-medium">
+            <ShieldAlert className="w-5 h-5 text-primary flex-shrink-0" />
             <div>
-              <span className="font-bold uppercase tracking-wider block mb-1">Medical Disclaimer:</span>
-              This automated system provides educational material on sexual health. It is not a substitute for clinical advice. For immediate support, please call our hotline: <strong className="font-bold text-amber-900 underline">0784538491</strong>.
+              <span className="font-bold uppercase tracking-wider block mb-1 text-primary">Medical Disclaimer:</span>
+              This automated system provides educational material on sexual health. It is not a substitute for clinical advice. For immediate support, please call our hotline: <strong className="font-bold text-primary underline">0784538491</strong>.
             </div>
           </div>
 
@@ -224,7 +224,7 @@ export default function ChatbotPage() {
                 key={opt.id}
                 onClick={() => handleQuickOptionClick(opt.id)}
                 disabled={isTyping}
-                className="bg-white hover:bg-teal-50 border border-slate-200 text-primary hover:text-teal-800 hover:border-teal-300 px-4 py-2 rounded-full text-xs font-bold transition-all shadow-sm disabled:opacity-50 disabled:pointer-events-none"
+                className="bg-white hover:bg-secondary/30 border border-slate-200 text-primary hover:border-primary/30 px-4 py-2 rounded-full text-xs font-bold transition-all shadow-sm disabled:opacity-50 disabled:pointer-events-none"
               >
                 {opt.label}
               </button>

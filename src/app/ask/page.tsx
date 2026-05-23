@@ -82,7 +82,7 @@ function AskPageContent() {
     return (
       <div className="min-h-[80vh] flex items-center justify-center px-4 py-20 bg-slate-50">
         <div className="max-w-xl w-full bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl shadow-primary/5 border border-slate-100 text-center animate-in zoom-in duration-500">
-          <div className="bg-emerald-50 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-8 text-emerald-600 shadow-inner">
+          <div className="bg-secondary/40 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-8 text-primary shadow-inner">
             <CheckCircle2 className="w-12 h-12" />
           </div>
           <h2 className="text-3xl font-black mb-4 text-slate-900 tracking-tight italic uppercase">Success!</h2>

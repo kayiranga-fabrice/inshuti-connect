@@ -68,7 +68,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="max-w-6xl mx-auto px-6 py-12 md:py-20 text-center">
         <div className="max-w-3xl mx-auto space-y-6">
-          <span className="bg-secondary/25 border border-secondary/20 text-teal-800 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest inline-block">
+          <span className="bg-secondary/25 border border-secondary/20 text-primary px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest inline-block">
             About Inshuti Connect
           </span>
           <h1 className="text-4xl md:text-6xl font-black tracking-tight uppercase italic leading-tight">
@@ -96,9 +96,9 @@ export default function AboutPage() {
         
         {/* Vision Card */}
         <div className="bg-white p-8 md:p-12 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-primary/5 relative overflow-hidden flex flex-col justify-between group">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-bl-[10rem] -z-10 group-hover:scale-105 transition-transform"></div>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/20 rounded-bl-[10rem] -z-10 group-hover:scale-105 transition-transform"></div>
           <div>
-            <div className="bg-teal-50 p-4 rounded-2xl w-fit mb-6 text-teal-600">
+            <div className="icon-box mb-6 p-4">
               <Globe className="w-8 h-8" />
             </div>
             <h3 className="text-2xl font-black mb-4 text-slate-900">Our Vision</h3>
@@ -106,16 +106,16 @@ export default function AboutPage() {
               We envision a stigma-free environment in Rwandan schools and universities where every student has safe, anonymous access to accurate sexual and reproductive health information. No barriers, no judgment, and absolute privacy.
             </p>
           </div>
-          <div className="mt-8 flex items-center gap-1 text-xs font-black uppercase text-teal-600">
+          <div className="mt-8 flex items-center gap-1 text-xs font-black uppercase text-primary">
             Empowering Everyone <CheckCircle2 className="w-4 h-4 ml-1" />
           </div>
         </div>
 
         {/* Mission Card */}
         <div className="bg-white p-8 md:p-12 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-primary/5 relative overflow-hidden flex flex-col justify-between group">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-[10rem] -z-10 group-hover:scale-105 transition-transform"></div>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/20 rounded-bl-[10rem] -z-10 group-hover:scale-105 transition-transform"></div>
           <div>
-            <div className="bg-emerald-50 p-4 rounded-2xl w-fit mb-6 text-emerald-600">
+            <div className="icon-box mb-6 p-4">
               <Shield className="w-8 h-8" />
             </div>
             <h3 className="text-2xl font-black mb-4 text-slate-900">Our Mission</h3>
@@ -123,7 +123,7 @@ export default function AboutPage() {
               To empower students through peer-led SRH support, clinically verified sexual health resources, and secure digital tools. By partnering with leading medical institutes, we ensure accurate, non-judgmental information while maintaining 100% confidentiality.
             </p>
           </div>
-          <div className="mt-8 flex items-center gap-1 text-xs font-black uppercase text-emerald-600">
+          <div className="mt-8 flex items-center gap-1 text-xs font-black uppercase text-primary">
             Clinically Guarded <CheckCircle2 className="w-4 h-4 ml-1" />
           </div>
         </div>
@@ -171,19 +171,19 @@ export default function AboutPage() {
               key={i} 
               className={`p-8 rounded-[2.5rem] border transition-all flex flex-col justify-between ${
                 member.highlight 
-                  ? 'bg-white border-2 border-emerald-500 shadow-xl shadow-emerald-500/5' 
+                  ? 'bg-white border-2 border-primary shadow-xl shadow-primary/10' 
                   : 'bg-white border-slate-100 shadow-lg shadow-primary/5 hover:translate-y-[-4px]'
               }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center font-black ${
-                    member.highlight ? 'bg-emerald-500 text-white' : 'bg-slate-100 text-slate-700'
+                    member.highlight ? 'bg-primary text-white' : 'bg-slate-100 text-slate-700'
                   }`}>
                     {member.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   {member.highlight && (
-                    <span className="bg-emerald-100 text-emerald-800 border border-emerald-200 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-wider">
+                    <span className="bg-secondary/40 text-primary border border-secondary px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-wider">
                       Featured Lead
                     </span>
                   )}
@@ -191,7 +191,7 @@ export default function AboutPage() {
                 
                 <h3 className="text-xl font-black text-slate-900">{member.name}</h3>
                 <p className={`text-xs font-black uppercase tracking-wider mt-1 ${
-                  member.highlight ? 'text-emerald-600' : 'text-slate-400'
+                  member.highlight ? 'text-primary' : 'text-slate-400'
                 }`}>
                   {member.role}
                 </p>
@@ -214,7 +214,7 @@ export default function AboutPage() {
       {/* Contact Section */}
       <section className="max-w-4xl mx-auto px-6 text-center">
         <div className="bg-white rounded-[2.5rem] p-8 md:p-12 border border-slate-100 shadow-xl flex flex-col items-center gap-6">
-          <Mail className="w-10 h-10 text-teal-600" />
+          <Mail className="w-10 h-10 text-primary" />
           <div className="space-y-2">
             <h3 className="text-2xl font-black text-slate-900">Have feedback or want to partner?</h3>
             <p className="text-slate-500 font-semibold text-sm max-w-md mx-auto">

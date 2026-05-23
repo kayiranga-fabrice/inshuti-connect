@@ -66,7 +66,7 @@ export default function KinyarwandaPage() {
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-white p-8 md:p-12 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-primary/5 flex flex-col justify-between">
             <div>
-              <div className="bg-emerald-50 p-4 rounded-2xl w-fit mb-6 text-emerald-600">
+              <div className="icon-box mb-6 p-4">
                 <HeartPulse className="w-10 h-10" />
               </div>
               <h3 className="text-2xl font-black mb-4">1. Ubuzima bw&apos;Imyororokere</h3>
@@ -76,34 +76,34 @@ export default function KinyarwandaPage() {
               </p>
               <ul className="space-y-4 mb-8 text-sm font-bold text-slate-700">
                 <li className="flex items-center gap-3">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-primary" />
                   Amasezerano / impamyabumenyi (Menstruation)
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-primary" />
                   Ububabare bw&apos;amasezerano (Period pain)
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-primary" />
                   Kuboneza urubyaro (Contraception)
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-primary" />
                   Inda n&apos;ibizamini by&apos;inda (Pregnancy)
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-primary" />
                   Kwirinda indwara zandurira (STIs)
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-primary" />
                   Ubwumvikane (Consent)
                 </li>
               </ul>
             </div>
             <Link
               href="/chatbot"
-              className="inline-flex items-center gap-2 text-emerald-600 font-black uppercase tracking-widest text-sm hover:underline"
+              className="inline-flex items-center gap-2 text-primary font-black uppercase tracking-widest text-sm hover:underline"
             >
               Koresha Chatbot <ChevronRight className="w-4 h-4" />
             </Link>
@@ -111,7 +111,7 @@ export default function KinyarwandaPage() {
 
           <div className="bg-white p-8 md:p-12 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-primary/5 flex flex-col justify-between">
             <div>
-              <div className="bg-rose-50 p-4 rounded-2xl w-fit mb-6 text-rose-600">
+              <div className="icon-box mb-6 p-4">
                 <ShieldAlert className="w-10 h-10" />
               </div>
               <h3 className="text-2xl font-black mb-4">2. Umutekano &amp; Ubufasha bwihuse</h3>
@@ -121,22 +121,22 @@ export default function KinyarwandaPage() {
               </p>
               <ul className="space-y-4 mb-8 text-sm font-bold text-slate-700">
                 <li className="flex items-center gap-3">
-                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-primary" />
                   GBV — 3512
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-primary" />
                   Polisi — 112
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-primary" />
                   Ubufasha bwihuse / Urgent help
                 </li>
               </ul>
             </div>
             <Link
               href="/urgent-help"
-              className="inline-flex items-center gap-2 text-rose-600 font-black uppercase tracking-widest text-sm hover:underline"
+              className="inline-flex items-center gap-2 text-primary font-black uppercase tracking-widest text-sm hover:underline"
             >
               Reba imirongo y&apos;ubufasha <ChevronRight className="w-4 h-4" />
             </Link>

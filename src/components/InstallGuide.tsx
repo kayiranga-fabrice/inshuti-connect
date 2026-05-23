@@ -39,7 +39,7 @@ export function InstallGuide() {
 
   if (isStandalone) {
     return (
-      <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 font-bold text-emerald-800">
+      <div className="bg-secondary/30 border border-secondary rounded-2xl p-6 font-bold text-primary">
         Inshuti Connect is already installed on this device.
       </div>
     );

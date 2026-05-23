@@ -107,7 +107,7 @@ export default function MessagesPage() {
           </button>
 
           {status === "success" && (
-            <p className="text-emerald-700 text-sm font-bold flex items-start gap-2">
+            <p className="text-primary text-sm font-bold flex items-start gap-2">
               <CheckCircle2 className="w-5 h-5 shrink-0" />
               {message}
             </p>
@@ -161,7 +161,7 @@ export default function MessagesPage() {
         <Link href="/install" className="text-primary underline">
           Install the web app
         </Link>
-        <Link href="/urgent-help" className="text-rose-600 underline">
+        <Link href="/urgent-help" className="text-primary font-bold underline">
           Urgent help
         </Link>
       </div>

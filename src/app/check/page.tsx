@@ -116,8 +116,8 @@ export default function CheckPage() {
                 </div>
                 <div className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest ${
                   question.status === 'answered' 
-                    ? 'bg-emerald-50 text-emerald-600 border border-emerald-100' 
-                    : 'bg-amber-50 text-amber-600 border border-amber-100'
+                    ? 'bg-secondary/30 text-primary border border-secondary'
+                    : 'bg-slate-100 text-slate-600 border border-slate-200'
                 }`}>
                   {question.status === 'answered' ? <CheckCircle2 className="w-4 h-4" /> : <Clock className="w-4 h-4" />}
                   {question.status}
