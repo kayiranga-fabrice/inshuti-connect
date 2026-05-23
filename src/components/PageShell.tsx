@@ -17,8 +17,8 @@ export function PageShell({
   backLabel?: string;
 }) {
   return (
-    <div className="min-h-screen bg-slate-50 pb-12">
-      <SiteContainer className="pt-6">
+    <div className="min-h-screen bg-slate-50 pb-16">
+      <SiteContainer className="pt-8 md:pt-10">
         <Link
           href={backHref}
           className="inline-flex items-center gap-2 text-slate-500 hover:text-primary font-bold text-xs uppercase tracking-widest"

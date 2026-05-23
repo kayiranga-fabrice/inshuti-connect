@@ -5,7 +5,7 @@ import { SiteContainer } from "@/components/SiteContainer";
 export function SiteFooter() {
   return (
     <>
-      <footer className="bg-slate-900 text-white pt-12 pb-8 mt-10">
+        <footer className="bg-slate-900 text-white pt-14 pb-10 mt-16 md:mt-20">
         <SiteContainer>
           <div className="grid md:grid-cols-4 gap-8 mb-10">
             <div className="col-span-1 md:col-span-2">

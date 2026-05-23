@@ -52,7 +52,7 @@ export default function Home() {
   return (
     <div className="flex flex-col bg-white font-sans selection:bg-secondary selection:text-primary">
       {/* Hero — ReachOut-style search-first entry */}
-      <section className="bg-primary text-white pt-8 pb-16 relative overflow-hidden">
+      <section className="bg-primary text-white pt-12 pb-20 md:pt-14 md:pb-24 relative overflow-hidden">
         <SiteContainer className="relative z-10">
           <p className="text-secondary font-black uppercase tracking-[0.2em] text-xs mb-4">
             Sexual & reproductive health
@@ -112,9 +112,9 @@ export default function Home() {
       </section>
 
       {/* Other ways we can help — overlaps hero like ReachOut */}
-      <SiteContainer className="-mt-10 mb-8 relative z-20">
+      <SiteContainer className="-mt-12 mb-14 md:mb-16 relative z-20">
         <h2 className="sr-only">Other ways we can help</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           <Link
             href="/chatbot"
             className="bg-white p-4 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between group hover:-translate-y-1 transition-all"
@@ -215,11 +215,11 @@ export default function Home() {
       </SiteContainer>
 
       {/* Topics + articles */}
-      <section className="py-8 bg-slate-50">
+      <section className="py-14 md:py-20 bg-slate-50">
         <SiteContainer>
-          <h2 className="text-3xl md:text-4xl font-black mb-6">Browse SRH topics</h2>
+          <h2 className="text-3xl md:text-4xl font-black mb-10">Browse SRH topics</h2>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2 mb-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 mb-12">
             {TOPICS.map((topic) => (
               <Link
                 key={topic.label}
@@ -236,8 +236,8 @@ export default function Home() {
             ))}
           </div>
 
-          <h3 className="text-2xl font-black mb-5">SRH guides & stories</h3>
-          <div className="grid md:grid-cols-3 gap-5">
+          <h3 className="text-2xl font-black mb-8">SRH guides & stories</h3>
+          <div className="grid md:grid-cols-3 gap-8">
             {ARTICLES.map((article) => (
               <Link key={article.title} href="/ask" className="group">
                 <div className="aspect-[4/3] bg-slate-200 rounded-3xl mb-4 border border-slate-100" />
@@ -251,7 +251,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-6 text-center">
+          <div className="mt-10 text-center">
             <Link
               href="/ask"
               className="inline-flex items-center gap-2 font-black text-primary uppercase tracking-widest text-sm border-b-4 border-secondary pb-1"
@@ -263,10 +263,10 @@ export default function Home() {
       </section>
 
       {/* Videos placeholder */}
-      <section className="py-8">
+      <section className="py-14 md:py-20">
         <SiteContainer>
-          <h2 className="text-3xl md:text-4xl font-black mb-6">Videos</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <h2 className="text-3xl md:text-4xl font-black mb-10">Videos</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               "Managing period pain at school",
               "Period hygiene and pads: the basics",
@@ -285,12 +285,12 @@ export default function Home() {
       </section>
 
       {/* Rwanda-relevant secondary CTAs (replaces Parents/Schools blocks) */}
-      <section className="py-8 bg-white border-t border-slate-100">
+      <section className="py-14 md:py-20 bg-white border-t border-slate-100">
         <SiteContainer>
-          <h2 className="text-2xl font-black mb-5 text-slate-500 uppercase tracking-widest text-sm">
+          <h2 className="text-2xl font-black mb-8 text-slate-500 uppercase tracking-widest text-sm">
             More support
           </h2>
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-slate-50 p-5 md:p-6 rounded-3xl border border-slate-100">
               <ShieldCheck className="w-10 h-10 text-primary mb-4" />
               <h3 className="text-2xl font-black mb-3">About Inshuti Connect</h3>
@@ -321,9 +321,9 @@ export default function Home() {
       </section>
 
       {/* Impact */}
-      <section className="py-8">
+      <section className="py-14 md:py-20">
         <SiteContainer>
-          <div className="flex flex-col lg:flex-row gap-5 items-stretch">
+          <div className="flex flex-col lg:flex-row gap-8 items-stretch">
             <div className="flex-1 space-y-4">
               <h2 className="text-3xl md:text-4xl font-black leading-tight">
                 SRH questions shouldn&apos;t cost you your privacy
@@ -355,9 +355,9 @@ export default function Home() {
       </section>
 
       {/* Newsletter placeholder */}
-      <section className="py-8">
+      <section className="py-14 md:py-20">
         <SiteContainer>
-          <div className="bg-slate-900 text-white rounded-3xl p-6 md:p-8 overflow-hidden relative">
+          <div className="bg-slate-900 text-white rounded-3xl p-8 md:p-12 overflow-hidden relative">
             <div className="absolute top-0 right-0 w-72 h-72 bg-primary/30 blur-[80px] rounded-full pointer-events-none" />
             <div className="relative z-10 max-w-2xl mx-auto text-center">
               <h2 className="text-2xl md:text-4xl font-black mb-4">Stay in touch</h2>
@@ -385,7 +385,7 @@ export default function Home() {
         </SiteContainer>
       </section>
 
-      <section className="py-5 border-t border-slate-100">
+      <section className="py-10 md:py-12 border-t border-slate-100">
         <SiteContainer className="text-slate-500 text-sm leading-relaxed space-y-4">
           <p>
             Inshuti Connect values diversity. We are committed to providing a safe, culturally appropriate, and inclusive service for all people, regardless of ethnicity, faith, disability, sexuality, or gender identity.
