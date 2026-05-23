@@ -20,8 +20,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} antialiased bg-white text-slate-900`}>
         {/* Urgent Help Banner */}
-        <div className="bg-rose-600 text-white py-3 px-4 sticky top-0 z-[60] shadow-md">
-          <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+        <div className="bg-rose-600 text-white py-3 px-2 sticky top-0 z-[60] shadow-md">
+          <div className="w-full flex items-center justify-between gap-2">
             <div className="flex items-center gap-2 font-bold text-sm md:text-base">
               <AlertCircle className="w-5 h-5 flex-shrink-0" />
               <span>Need help now?</span>
@@ -37,7 +37,7 @@ export default function RootLayout({
 
         {/* Main Navigation */}
         <header className="bg-white border-b sticky top-[52px] z-50">
-          <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
+          <div className="w-full px-2 h-20 flex items-center justify-between">
             <div className="flex items-center gap-8">
               <Link href="/" className="flex items-center gap-2 text-primary">
                 <div className="bg-primary p-2 rounded-xl">
@@ -78,7 +78,7 @@ export default function RootLayout({
         </main>
 
         <footer className="bg-slate-900 text-white pt-20 pb-10 mt-20">
-          <div className="max-w-7xl mx-auto px-6">
+          <div className="w-full px-2">
             <div className="grid md:grid-cols-4 gap-12 mb-16">
               <div className="col-span-1 md:col-span-2">
                 <div className="flex items-center gap-2 text-white font-black text-2xl mb-6">
