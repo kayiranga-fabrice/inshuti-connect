@@ -12,9 +12,9 @@ export default function Home() {
     <div className="flex flex-col bg-white font-sans selection:bg-secondary selection:text-primary">
       
       {/* --- HERO: ASK REACHOUT --- */}
-      <section className="bg-primary text-white pt-12 pb-24 px-6 relative overflow-hidden">
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="max-w-3xl">
+      <section className="bg-primary text-white pt-12 pb-24 px-4 sm:px-6 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
+          <div className="max-w-4xl lg:max-w-5xl">
             <h1 className="text-4xl md:text-[3.5rem] font-black leading-tight mb-8">
               A safe place to chat anonymously, get support & feel better.
             </h1>
@@ -53,7 +53,7 @@ export default function Home() {
       </section>
 
       {/* --- SUPPORT OPTIONS --- */}
-      <section className="max-w-6xl mx-auto px-6 -mt-10 mb-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-20">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 -mt-10 mb-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-20 w-full">
         <Link href="/ask" className="bg-white p-6 rounded-[2rem] shadow-xl border border-slate-100 flex flex-col justify-between group hover:translate-y-[-4px] transition-all">
           <div>
             <div className="bg-emerald-50 p-4 rounded-2xl w-fit mb-4">
@@ -106,7 +106,7 @@ export default function Home() {
 
       {/* --- ARTICLES, QUIZZES AND STORIES --- */}
       <section className="py-20 px-6 bg-slate-50">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <h2 className="text-4xl font-black mb-12">Articles, quizzes and stories</h2>
           
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 mb-16">
@@ -168,7 +168,7 @@ export default function Home() {
 
       {/* --- VIDEOS --- */}
       <section className="py-24 px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <h2 className="text-4xl font-black mb-12">Videos</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[1,2,3,4].map(i => (
@@ -185,7 +185,7 @@ export default function Home() {
 
       {/* --- FOR PARENTS & SCHOOLS --- */}
       <section className="py-24 px-6 bg-white">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-12">
           <div className="bg-slate-50 p-12 rounded-[3rem] border border-slate-100">
             <h3 className="text-3xl font-black mb-6">For parents and carers</h3>
             <p className="text-slate-600 mb-8 font-medium leading-relaxed">Helping you support them. Free expert advice, coaching and support for parents and carers in Australia.</p>
@@ -201,7 +201,7 @@ export default function Home() {
 
       {/* --- IMPACT & VOLUNTEER --- */}
       <section className="py-24 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row gap-12 items-center">
           <div className="flex-1 space-y-6">
             <h2 className="text-4xl font-black italic">40% of young people experience mental ill-health</h2>
             <p className="text-lg text-slate-600 font-medium">Support ReachOut by donating to our critical services today.</p>
@@ -233,7 +233,7 @@ export default function Home() {
       </section>
 
       {/* --- ACKNOWLEDGEMENT --- */}
-      <section className="py-12 px-6 max-w-6xl mx-auto text-slate-400 text-sm leading-relaxed space-y-6">
+      <section className="py-12 px-4 sm:px-6 max-w-7xl mx-auto text-slate-400 text-sm leading-relaxed space-y-6">
         <p>We acknowledge the traditional owners of Country throughout Australia. We pay our respects to Aboriginal and Torres Strait Islander cultures, and to Elders past and present. We recognise connection to Country as integral to health and wellbeing.</p>
         <p>We acknowledge people with lived experience of mental ill-health and recovery and the experience of people who have been carers, families, or supporters.</p>
         <p>Inshuti Connect values diversity. We are committed to providing a safe, culturally appropriate, and inclusive service for all people, regardless of their ethnicity, faith, disability, sexuality, or gender identity.</p>
