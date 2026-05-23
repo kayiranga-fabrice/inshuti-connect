@@ -222,10 +222,10 @@ export default function AboutPage() {
             </p>
           </div>
           <a 
-            href="mailto:support@inshuticonnect.org" 
+            href="mailto:support@inshuticonnect.com" 
             className="bg-primary hover:bg-slate-800 text-white font-black px-8 py-4 rounded-xl transition-all inline-flex items-center gap-2 shadow-md uppercase tracking-wider text-xs"
           >
-            support@inshuticonnect.org
+            support@inshuticonnect.com
           </a>
         </div>
       </section>
