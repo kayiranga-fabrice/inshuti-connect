@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { MessageSquareHeart, AlertCircle, Search, Menu } from "lucide-react";
+import { SiteContainer } from "@/components/SiteContainer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,8 +21,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} antialiased bg-white text-slate-900`}>
         {/* Urgent Help Banner */}
-        <div className="bg-rose-600 text-white py-3 px-2 sticky top-0 z-[60] shadow-md">
-          <div className="w-full flex items-center justify-between gap-2">
+        <div className="bg-rose-600 text-white py-3 sticky top-0 z-[60] shadow-md">
+          <SiteContainer className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-2 font-bold text-sm md:text-base">
               <AlertCircle className="w-5 h-5 flex-shrink-0" />
               <span>Need help now?</span>
@@ -32,12 +33,12 @@ export default function RootLayout({
             >
               Get urgent help
             </Link>
-          </div>
+          </SiteContainer>
         </div>
 
         {/* Main Navigation */}
         <header className="bg-white border-b sticky top-[52px] z-50">
-          <div className="w-full px-2 h-20 flex items-center justify-between">
+          <SiteContainer className="h-20 flex items-center justify-between">
             <div className="flex items-center gap-8">
               <Link href="/" className="flex items-center gap-2 text-primary">
                 <div className="bg-primary p-2 rounded-xl">
@@ -64,13 +65,13 @@ export default function RootLayout({
                 href="/ask" 
                 className="bg-secondary text-primary px-6 py-2.5 rounded-full font-black text-sm hover:opacity-90 transition-all shadow-sm"
               >
-                Ask ReachOut
+                Ask a question
               </Link>
-              <button className="lg:hidden text-primary p-2">
+              <button className="lg:hidden text-primary p-2" type="button" aria-label="Open menu">
                 <Menu className="w-6 h-6" />
               </button>
             </div>
-          </div>
+          </SiteContainer>
         </header>
 
         <main>
@@ -78,7 +79,7 @@ export default function RootLayout({
         </main>
 
         <footer className="bg-slate-900 text-white pt-20 pb-10 mt-20">
-          <div className="w-full px-2">
+          <SiteContainer>
             <div className="grid md:grid-cols-4 gap-12 mb-16">
               <div className="col-span-1 md:col-span-2">
                 <div className="flex items-center gap-2 text-white font-black text-2xl mb-6">
@@ -134,7 +135,7 @@ export default function RootLayout({
                 <span className="hover:text-white cursor-pointer">Accessibility</span>
               </div>
             </div>
-          </div>
+          </SiteContainer>
         </footer>
       </body>
     </html>
