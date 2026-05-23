@@ -53,15 +53,15 @@ export default function Home() {
   return (
     <div className="flex flex-col bg-white font-sans selection:bg-secondary selection:text-primary">
       {/* Hero — ReachOut-style search-first entry */}
-      <section className="bg-primary text-white pt-12 pb-24 relative overflow-hidden">
+      <section className="bg-primary text-white pt-8 pb-16 relative overflow-hidden">
         <SiteContainer className="relative z-10">
           <p className="text-secondary font-black uppercase tracking-[0.2em] text-xs mb-4">
             Whatever&apos;s on your mind
           </p>
-          <h1 className="text-3xl sm:text-4xl md:text-[3.25rem] font-black leading-[1.1] mb-8 max-w-4xl">
+          <h1 className="text-3xl sm:text-4xl md:text-[3.25rem] font-black leading-[1.1] mb-5 max-w-4xl">
             Ask Inshuti Connect
           </h1>
-          <p className="text-white/80 text-lg font-medium mb-8 max-w-2xl">
+          <p className="text-white/80 text-lg font-medium mb-5 max-w-2xl">
             Get anonymous answers from trained student responders — mental health and SRH support for Rwanda.
           </p>
 
@@ -113,12 +113,12 @@ export default function Home() {
       </section>
 
       {/* Other ways we can help — overlaps hero like ReachOut */}
-      <SiteContainer className="-mt-12 mb-16 relative z-20">
+      <SiteContainer className="-mt-10 mb-8 relative z-20">
         <h2 className="sr-only">Other ways we can help</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <Link
             href="/ask"
-            className="bg-white p-6 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between group hover:-translate-y-1 transition-all"
+            className="bg-white p-4 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between group hover:-translate-y-1 transition-all"
           >
             <div>
               <div className="bg-emerald-50 p-3 rounded-2xl w-fit mb-4">
@@ -138,7 +138,7 @@ export default function Home() {
 
           <Link
             href="/check"
-            className="bg-white p-6 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between group hover:-translate-y-1 transition-all"
+            className="bg-white p-4 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between group hover:-translate-y-1 transition-all"
           >
             <div>
               <div className="bg-teal-50 p-3 rounded-2xl w-fit mb-4">
@@ -158,7 +158,7 @@ export default function Home() {
 
           <Link
             href="/rw"
-            className="bg-white p-6 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between group hover:-translate-y-1 transition-all"
+            className="bg-white p-4 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between group hover:-translate-y-1 transition-all"
           >
             <div>
               <div className="bg-amber-50 p-3 rounded-2xl w-fit mb-4">
@@ -178,7 +178,7 @@ export default function Home() {
 
           <Link
             href="/chatbot"
-            className="bg-white p-6 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between group hover:-translate-y-1 transition-all"
+            className="bg-white p-4 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between group hover:-translate-y-1 transition-all"
           >
             <div>
               <div className="bg-indigo-50 p-3 rounded-2xl w-fit mb-4">
@@ -199,11 +199,11 @@ export default function Home() {
       </SiteContainer>
 
       {/* Topics + articles */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-8 bg-slate-50">
         <SiteContainer>
-          <h2 className="text-3xl md:text-4xl font-black mb-10">Browse topics</h2>
+          <h2 className="text-3xl md:text-4xl font-black mb-6">Browse topics</h2>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 mb-14">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2 mb-8">
             {TOPICS.map((topic) => (
               <Link
                 key={topic.label}
@@ -220,8 +220,8 @@ export default function Home() {
             ))}
           </div>
 
-          <h3 className="text-2xl font-black mb-8">Articles, guides and stories</h3>
-          <div className="grid md:grid-cols-3 gap-8">
+          <h3 className="text-2xl font-black mb-5">Articles, guides and stories</h3>
+          <div className="grid md:grid-cols-3 gap-5">
             {ARTICLES.map((article) => (
               <Link key={article.title} href="/ask" className="group">
                 <div className="aspect-[4/3] bg-slate-200 rounded-3xl mb-4 border border-slate-100" />
@@ -235,7 +235,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-10 text-center">
+          <div className="mt-6 text-center">
             <Link
               href="/ask"
               className="inline-flex items-center gap-2 font-black text-primary uppercase tracking-widest text-sm border-b-4 border-secondary pb-1"
@@ -247,10 +247,10 @@ export default function Home() {
       </section>
 
       {/* Videos placeholder */}
-      <section className="py-16">
+      <section className="py-8">
         <SiteContainer>
-          <h2 className="text-3xl md:text-4xl font-black mb-10">Videos</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <h2 className="text-3xl md:text-4xl font-black mb-6">Videos</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               "Staying strong when life feels heavy",
               "Understanding consent and boundaries",
@@ -269,13 +269,13 @@ export default function Home() {
       </section>
 
       {/* Rwanda-relevant secondary CTAs (replaces Parents/Schools blocks) */}
-      <section className="py-16 bg-white border-t border-slate-100">
+      <section className="py-8 bg-white border-t border-slate-100">
         <SiteContainer>
-          <h2 className="text-2xl font-black mb-8 text-slate-500 uppercase tracking-widest text-sm">
+          <h2 className="text-2xl font-black mb-5 text-slate-500 uppercase tracking-widest text-sm">
             More support
           </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-slate-50 p-8 md:p-10 rounded-3xl border border-slate-100">
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="bg-slate-50 p-5 md:p-6 rounded-3xl border border-slate-100">
               <ShieldCheck className="w-10 h-10 text-primary mb-4" />
               <h3 className="text-2xl font-black mb-3">About Inshuti Connect</h3>
               <p className="text-slate-600 mb-6 font-medium leading-relaxed">
@@ -288,7 +288,7 @@ export default function Home() {
                 About us <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-            <div className="bg-rose-50 p-8 md:p-10 rounded-3xl border border-rose-100">
+            <div className="bg-rose-50 p-5 md:p-6 rounded-3xl border border-rose-100">
               <h3 className="text-2xl font-black mb-3 text-rose-900">Need help right now?</h3>
               <p className="text-rose-800/80 mb-6 font-medium leading-relaxed">
                 Crisis lines, grounding exercises, and urgent resources when you cannot wait for a response.
@@ -305,9 +305,9 @@ export default function Home() {
       </section>
 
       {/* Impact */}
-      <section className="py-16">
+      <section className="py-8">
         <SiteContainer>
-          <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+          <div className="flex flex-col lg:flex-row gap-5 items-stretch">
             <div className="flex-1 space-y-4">
               <h2 className="text-3xl md:text-4xl font-black leading-tight">
                 Support shouldn&apos;t require giving up your privacy
@@ -322,7 +322,7 @@ export default function Home() {
                 Ask anonymously
               </Link>
             </div>
-            <div className="flex-1 bg-secondary p-8 md:p-10 rounded-3xl text-primary">
+            <div className="flex-1 bg-secondary p-5 md:p-6 rounded-3xl text-primary">
               <h3 className="text-2xl font-black mb-3">100% online & anonymous</h3>
               <p className="font-bold mb-6 leading-relaxed opacity-90">
                 Ask a question, get a tracking code, and check back when your trained responder has replied. Kinyarwanda content and an SRH chatbot are always available.
@@ -339,9 +339,9 @@ export default function Home() {
       </section>
 
       {/* Newsletter placeholder */}
-      <section className="py-16">
+      <section className="py-8">
         <SiteContainer>
-          <div className="bg-slate-900 text-white rounded-3xl p-8 md:p-14 overflow-hidden relative">
+          <div className="bg-slate-900 text-white rounded-3xl p-6 md:p-8 overflow-hidden relative">
             <div className="absolute top-0 right-0 w-72 h-72 bg-primary/30 blur-[80px] rounded-full pointer-events-none" />
             <div className="relative z-10 max-w-2xl mx-auto text-center">
               <h2 className="text-2xl md:text-4xl font-black mb-4">Stay in touch</h2>
@@ -369,7 +369,7 @@ export default function Home() {
         </SiteContainer>
       </section>
 
-      <section className="py-8 border-t border-slate-100">
+      <section className="py-5 border-t border-slate-100">
         <SiteContainer className="text-slate-500 text-sm leading-relaxed space-y-4">
           <p>
             Inshuti Connect values diversity. We are committed to providing a safe, culturally appropriate, and inclusive service for all people, regardless of ethnicity, faith, disability, sexuality, or gender identity.
