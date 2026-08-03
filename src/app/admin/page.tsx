@@ -5,7 +5,8 @@ import { supabase } from '@/lib/supabase';
 import { 
   Lock, LayoutDashboard, MessageSquare, 
   Clock, CheckCircle2, Send, LogOut,
-  Search, Filter, ChevronRight, Sparkles
+  Search, Filter, ChevronRight, Sparkles,
+  Trash2
 } from 'lucide-react';
 
 type Question = {
@@ -63,6 +64,21 @@ export default function AdminPage() {
       fetchQuestions();
     } else {
       alert('Failed to update response');
+    }
+  };
+
+  const handleDeleteQuestion = async (id: string) => {
+    if (!confirm('Are you sure you want to delete this question? This cannot be undone.')) return;
+
+    const { error } = await supabase
+      .from('questions')
+      .delete()
+      .eq('id', id);
+
+    if (!error) {
+      fetchQuestions();
+    } else {
+      alert('Failed to delete question');
     }
   };
 
@@ -173,7 +189,16 @@ export default function AdminPage() {
                         </span>
                         <span className="text-slate-400 text-[10px] font-black font-mono">ID: {q.id.slice(0, 8)}</span>
                       </div>
-                      <span className="text-slate-400 text-xs font-bold">{new Date(q.created_at).toLocaleDateString()}</span>
+                      <div className="flex items-center gap-4">
+                        <span className="text-slate-400 text-xs font-bold">{new Date(q.created_at).toLocaleDateString()}</span>
+                        <button
+                          onClick={() => handleDeleteQuestion(q.id)}
+                          className="text-slate-400 hover:text-rose-600 transition-colors p-1"
+                          title="Delete Question"
+                        >
+                          <Trash2 className="w-5 h-5" />
+                        </button>
+                      </div>
                     </div>
                     
                     <div className="mb-8">
@@ -218,3 +243,4 @@ export default function AdminPage() {
     </div>
   );
 }
+
