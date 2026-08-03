@@ -33,7 +33,7 @@ export default function ChatbotPage() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isTyping]);
 
-  const handleSendMessage = (text: string) => {
+  const handleSendMessage = async (text: string) => {
     if (!text.trim()) return;
 
     const userMsg: Message = {
@@ -43,12 +43,36 @@ export default function ChatbotPage() {
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     };
 
-    setMessages(prev => [...prev, userMsg]);
+    const newMessages = [...messages, userMsg];
+    setMessages(newMessages);
     setInputValue('');
     setIsTyping(true);
 
-    // Simulate bot response delay
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ messages: newMessages }),
+      });
+
+      if (!response.ok) {
+        throw new Error('API request failed');
+      }
+
+      const data = await response.json();
+      
+      const botMsg: Message = {
+        id: `bot-${Date.now()}`,
+        sender: 'bot',
+        text: data.response,
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      };
+
+      setMessages(prev => [...prev, botMsg]);
+    } catch (err) {
+      console.warn('API Chat failed, falling back to static rules:', err);
       let replyText = "I'm here to listen. You can select one of the quick options below, or contact our support line at **0784538491** for personalized assistance.";
       
       const topicKey = matchChatbotTopic(text);
@@ -64,15 +88,15 @@ export default function ChatbotPage() {
       };
 
       setMessages(prev => [...prev, botMsg]);
+    } finally {
       setIsTyping(false);
-    }, 1200);
+    }
   };
 
-  const handleQuickOptionClick = (optionId: string) => {
+  const handleQuickOptionClick = async (optionId: string) => {
     const option = CHATBOT_QUICK_OPTIONS.find((o) => o.id === optionId);
     if (!option) return;
 
-    // Send user message
     const userMsg: Message = {
       id: `user-${Date.now()}`,
       sender: 'user',
@@ -80,10 +104,34 @@ export default function ChatbotPage() {
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     };
 
-    setMessages(prev => [...prev, userMsg]);
+    const newMessages = [...messages, userMsg];
+    setMessages(newMessages);
     setIsTyping(true);
 
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ messages: newMessages }),
+      });
+
+      if (!response.ok) {
+        throw new Error('API request failed');
+      }
+
+      const data = await response.json();
+      
+      const botMsg: Message = {
+        id: `bot-${Date.now()}`,
+        sender: 'bot',
+        text: data.response,
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      };
+      setMessages(prev => [...prev, botMsg]);
+    } catch (err) {
+      console.warn('API Chat failed, falling back to static responses:', err);
       const botMsg: Message = {
         id: `bot-${Date.now()}`,
         sender: 'bot',
@@ -91,8 +139,9 @@ export default function ChatbotPage() {
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
       setMessages(prev => [...prev, botMsg]);
+    } finally {
       setIsTyping(false);
-    }, 1000);
+    }
   };
 
   // Helper to render markdown-like text
