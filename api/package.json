@@ -1,0 +1,9 @@
+{
+  "name": "inshuti-connect-api",
+  "version": "1.0.0",
+  "description": "Azure Functions API for Inshuti Connect",
+  "main": "chat/index.js",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1"
+  }
+}

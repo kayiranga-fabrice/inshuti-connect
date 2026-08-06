@@ -1,9 +1,6 @@
-import { NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 
-// System prompt configuration
 const SYSTEM_PROMPT = `You are the Inshuti Connect SRH (Sexual and Reproductive Health) Assistant, dedicated to providing warm, anonymous, non-judgmental, and evidence-based support for youth and students in Rwanda.
-
 
 Your scope includes:
 1. Menstruation and hygiene.
@@ -27,51 +24,48 @@ Strict Guidelines:
   * Child Helpline: 116
   * General Emergency: 112`;
 
-export async function POST(request: Request) {
+module.exports = async function (context, req) {
   try {
     const apiKey = process.env.GEMINI_API_KEY || '';
     if (!apiKey) {
-      return NextResponse.json(
-        { error: 'Gemini API key is not configured.' },
-        { status: 500 }
-      );
+      context.res = {
+        status: 500,
+        body: { error: 'Gemini API key is not configured.' }
+      };
+      return;
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
-
-
-    const { messages } = await request.json();
+    
+    const { messages } = req.body;
     if (!messages || !Array.isArray(messages)) {
-      return NextResponse.json(
-        { error: 'Invalid messages history.' },
-        { status: 400 }
-      );
+      context.res = {
+        status: 400,
+        body: { error: 'Invalid messages history.' }
+      };
+      return;
     }
 
-    // Initialize the Gemini model with system instruction
     const model = genAI.getGenerativeModel({
       model: 'gemini-3.5-flash',
       systemInstruction: SYSTEM_PROMPT,
     });
 
-    // Format message history for Gemini: { role: 'user' | 'model', parts: [{ text: string }] }
-    // Clean up role names: model uses 'user' and 'model'
-    // Gemini chat history MUST start with a 'user' message. We filter out initial welcome messages.
-    const mappedHistory = messages.slice(0, -1).map((msg: any) => ({
+    const mappedHistory = messages.slice(0, -1).map((msg) => ({
       role: msg.sender === 'user' ? 'user' : 'model',
       parts: [{ text: msg.text }],
     }));
 
-    const firstUserIndex = mappedHistory.findIndex((msg: any) => msg.role === 'user');
+    const firstUserIndex = mappedHistory.findIndex((msg) => msg.role === 'user');
     const geminiHistory = firstUserIndex !== -1 ? mappedHistory.slice(firstUserIndex) : [];
-
 
     const lastMessage = messages[messages.length - 1];
     if (!lastMessage || !lastMessage.text) {
-      return NextResponse.json(
-        { error: 'Empty user prompt.' },
-        { status: 400 }
-      );
+      context.res = {
+        status: 400,
+        body: { error: 'Empty user prompt.' }
+      };
+      return;
     }
 
     const chat = model.startChat({
@@ -81,12 +75,18 @@ export async function POST(request: Request) {
     const result = await chat.sendMessage(lastMessage.text);
     const responseText = result.response.text();
 
-    return NextResponse.json({ response: responseText });
-  } catch (error: any) {
-    console.error('Error in Gemini Chat API:', error);
-    return NextResponse.json(
-      { error: 'Failed to process chat with Inshuti Assistant.' },
-      { status: 500 }
-    );
+    context.res = {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: { response: responseText }
+    };
+  } catch (error) {
+    context.log('Error in Azure Function Gemini Chat:', error);
+    context.res = {
+      status: 500,
+      body: { error: 'Failed to process chat with Inshuti Assistant.' }
+    };
   }
-}
+};
