@@ -1,6 +1,13 @@
 {
   "trailingSlash": "always",
   "navigationFallback": {
-    "rewrite": "/index.html"
+    "rewrite": "/index.html",
+    "exclude": [
+      "/_next/**/*",
+      "/static/**/*",
+      "/images/**/*",
+      "/icons/**/*",
+      "*.{css,js,png,jpg,gif,svg,json,txt,woff2}"
+    ]
   }
 }

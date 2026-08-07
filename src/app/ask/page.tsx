@@ -176,10 +176,10 @@ function AskPageContent() {
                         key={cat}
                         type="button"
                         onClick={() => setCategory(cat)}
-                        className={`py-3 px-2 rounded-xl border-2 transition-all font-black text-[10px] sm:text-xs uppercase tracking-wider ${
+                        className={`py-3 px-1 rounded-xl border-2 transition-all duration-300 ease-out font-black text-[10px] sm:text-xs uppercase tracking-tight sm:tracking-wider break-all flex items-center justify-center text-center min-h-[52px] ${
                           category === cat
-                            ? 'border-secondary bg-white text-primary shadow-md'
-                            : 'border-slate-50 bg-slate-50 text-slate-400 hover:border-slate-100'
+                            ? 'border-secondary bg-white text-primary shadow-md hover:-translate-y-0.5 hover:shadow-lg'
+                            : 'border-slate-50 bg-slate-50 text-slate-400 hover:bg-secondary/15 hover:border-secondary/30 hover:text-primary hover:-translate-y-0.5 hover:shadow-sm'
                         }`}
                       >
                         {cat}
