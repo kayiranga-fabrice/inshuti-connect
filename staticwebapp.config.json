@@ -3,11 +3,18 @@
   "navigationFallback": {
     "rewrite": "/index.html",
     "exclude": [
-      "/_next/**",
-      "/static/**",
-      "/images/**",
-      "/icons/**",
-      "*.{css,js,png,jpg,gif,svg,json,txt,woff2}"
+      "/_next/*",
+      "/static/*",
+      "/images/*",
+      "/icons/*",
+      "/*.css",
+      "/*.js",
+      "/*.png",
+      "/*.jpg",
+      "/*.svg",
+      "/*.json",
+      "/*.txt",
+      "/*.woff2"
     ]
   }
 }
