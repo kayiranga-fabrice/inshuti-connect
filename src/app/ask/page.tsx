@@ -143,14 +143,14 @@ function AskPageContent() {
               <span className="text-primary underline decoration-secondary decoration-8 underline-offset-8">SRH</span>
             </h1>
             <p className="text-xl text-slate-600 leading-relaxed font-medium">
-              Menstruation, period pain, contraception, STIs, consent, puberty, pregnancy — ask anonymously. Trained student responders reply with accurate, non-judgmental SRH information.
+              Menstruation, period pain, contraception, STIs, consent, puberty, pregnancy. Ask anonymously. Trained student responders reply with accurate, non-judgmental SRH information.
             </p>
             
             <div className="space-y-4 pt-4">
               {[
                 { icon: <ShieldCheck className="w-6 h-6 text-primary" />, title: "100% Anonymous", desc: "No names, no logins, no tracking." },
                 { icon: <HeartPulse className="w-6 h-6 text-primary" />, title: "SRH-focused", desc: "Built for sexual and reproductive health questions." },
-                { icon: <MessageSquare className="w-6 h-6 text-primary" />, title: "Expert Vetted", desc: "Safe, accurate SRH information — not a clinic substitute." }
+                { icon: <MessageSquare className="w-6 h-6 text-primary" />, title: "Expert Vetted", desc: "Safe, accurate SRH information. Not a clinic substitute." }
               ].map((item, i) => (
                 <div key={i} className="flex gap-4 p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
                   <div className="bg-primary/5 p-3 rounded-2xl h-fit">{item.icon}</div>

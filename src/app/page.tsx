@@ -10,7 +10,6 @@ import {
   Smartphone,
   Users,
   HeartPulse,
-  PlayCircle,
   ExternalLink,
   Bot,
   Globe,
@@ -35,7 +34,7 @@ const ARTICLES = [
   {
     title: "Your first period: what to expect",
     excerpt:
-      "Cycles, hygiene, pads, and when it is normal — plus when to talk to a nurse or health centre.",
+      "Cycles, hygiene, pads, and when it is normal. Plus when to talk to a nurse or health centre.",
     image: "/images/article-students.png",
     alt: "Rwandan students in school uniforms studying outdoors",
   },
@@ -49,55 +48,41 @@ const ARTICLES = [
   {
     title: "Contraception options: what students should know",
     excerpt:
-      "Condoms, pills, implants, and emergency contraception — how they work and where to get care.",
+      "Condoms, pills, implants, and emergency contraception. How they work and where to get care.",
     image: "/images/article-phone.png",
     alt: "Young woman using a smartphone for health information",
   },
 ] as const;
 
-const VIDEOS = [
-  {
-    title: "Managing period pain at school",
-    image: "/images/article-students.png",
-    alt: "Students at school in Rwanda",
-  },
-  {
-    title: "Period hygiene and pads: the basics",
-    image: "/images/article-community.png",
-    alt: "Community health education event",
-  },
-  {
-    title: "How to use condoms correctly",
-    image: "/images/article-phone.png",
-    alt: "Young person accessing SRH information on a phone",
-  },
-  {
-    title: "When to visit a health centre for SRH care",
-    image: "/images/article-phones.png",
-    alt: "Two young women using phones to find health support",
-  },
-] as const;
 
 export default function Home() {
   return (
     <div className="flex flex-col bg-white font-sans selection:bg-secondary selection:text-primary">
-      {/* Hero — ReachOut-style search-first entry */}
-      <section className="bg-primary text-white pt-12 pb-20 md:pt-14 md:pb-24 relative overflow-hidden">
+      {/* Hero */}
+      <section
+        className="pt-12 pb-20 md:pt-14 md:pb-24 relative overflow-hidden"
+        style={{ background: "linear-gradient(135deg, #B2D8C6 0%, #D9EFE6 40%, #EEF8F3 70%, #FAF7F4 100%)" }}
+      >
+        {/* subtle radial accent */}
+        <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full opacity-30 pointer-events-none"
+          style={{ background: "radial-gradient(circle, #86c9ad 0%, transparent 70%)" }} />
+
         <SiteContainer className="relative z-10">
-          <p className="text-secondary font-black uppercase tracking-[0.2em] text-xs mb-4">
-            Sexual & reproductive health
+          <p className="text-primary/70 font-bold uppercase tracking-[0.2em] text-xs mb-4">
+            Sexual &amp; reproductive health
           </p>
-          <h1 className="text-3xl sm:text-4xl md:text-[3.25rem] font-black leading-[1.1] mb-5 max-w-4xl">
-            SRH support, anonymously
+          <h1 className="text-3xl sm:text-4xl md:text-[3.25rem] font-black leading-[1.1] mb-5 max-w-4xl text-primary">
+            SRH support,{" "}
+            <span className="text-violet">anonymously</span>
           </h1>
-          <p className="text-white/80 text-lg font-medium mb-6 max-w-2xl">
-            Ask about menstruation, period pain, contraception, STIs, consent, puberty, and pregnancy — private answers from trained student responders in Rwanda.
+          <p className="text-slate-600 text-lg font-medium mb-6 max-w-2xl">
+            Ask about menstruation, period pain, contraception, STIs, consent, puberty, and pregnancy. Private answers from trained student responders in Rwanda.
           </p>
 
           <form
             action="/ask"
             method="get"
-            className="bg-white rounded-2xl p-1.5 shadow-2xl flex flex-col md:flex-row items-stretch mb-6 max-w-3xl group"
+            className="bg-white rounded-2xl p-1.5 shadow-lg border border-white flex flex-col md:flex-row items-stretch mb-6 max-w-3xl group"
           >
             <div className="flex-1 relative">
               <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
@@ -112,27 +97,27 @@ export default function Home() {
             </div>
             <button
               type="submit"
-              className="bg-primary hover:bg-slate-800 text-white px-8 py-3 md:py-0 rounded-xl font-black flex items-center justify-center transition-all m-1.5 shrink-0"
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-3 md:py-0 rounded-xl font-black flex items-center justify-center transition-all m-1.5 shrink-0"
             >
               ASK
             </button>
           </form>
 
-          <p className="text-white/60 text-sm mb-4">
-            Anonymous SRH information only — not a substitute for a clinic visit. For urgent help, use{" "}
-            <Link href="/urgent-help" className="text-secondary underline font-bold">
+          <p className="text-slate-500 text-sm mb-4">
+            Anonymous SRH information only. Not a substitute for a clinic visit. For urgent help, use{" "}
+            <Link href="/urgent-help" className="text-primary underline font-bold">
               urgent help
             </Link>
             .
           </p>
 
           <div className="flex flex-wrap items-center gap-2 text-sm font-bold">
-            <span className="text-white/50 uppercase tracking-widest text-[10px]">Try:</span>
+            <span className="text-slate-400 uppercase tracking-widest text-[10px]">Try:</span>
             {COMMON_SEARCHES.map((tag) => (
               <Link
                 key={tag}
                 href={`/ask?q=${encodeURIComponent(tag)}`}
-                className="bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-full border border-white/20 transition-all"
+                className="bg-primary/10 hover:bg-primary/20 text-primary px-3 py-1.5 rounded-full border border-primary/20 transition-all"
               >
                 {tag}
               </Link>
@@ -144,7 +129,7 @@ export default function Home() {
       {/* Other ways we can help — overlaps hero like ReachOut */}
       <SiteContainer className="-mt-10 md:-mt-12 mb-14 md:mb-16 relative z-20">
         <h2 className="sr-only">Other ways we can help</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           <Link
             href="/chatbot"
             className="bg-white p-5 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-between min-h-[200px] group hover:-translate-y-1 transition-all"
@@ -228,10 +213,10 @@ export default function Home() {
 
         <div className="grid sm:grid-cols-2 gap-4 mt-6">
           <Link
-            href="/install"
+            href="/shop"
             className="flex items-center justify-between bg-primary/5 border border-primary/10 rounded-2xl px-4 py-3.5 font-black text-sm text-primary hover:bg-primary/10"
           >
-            Install on your phone
+            Shop health kits
             <ArrowRight className="w-4 h-4" />
           </Link>
           <Link
@@ -247,7 +232,7 @@ export default function Home() {
       {/* Topics + articles */}
       <section className="py-14 md:py-20 bg-slate-50">
         <SiteContainer>
-          <h2 className="text-3xl md:text-4xl font-black mb-10">Browse SRH topics</h2>
+          <h2 className="text-3xl md:text-4xl font-black mb-10 text-violet">Browse SRH topics</h2>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 mb-14">
             {TOPICS.map((topic) => (
@@ -300,28 +285,77 @@ export default function Home() {
         </SiteContainer>
       </section>
 
-      {/* Videos placeholder */}
-      <section className="py-14 md:py-20">
+      {/* Meet your team */}
+      <section className="py-14 md:py-20 bg-slate-50">
         <SiteContainer>
-          <h2 className="text-3xl md:text-4xl font-black mb-10">Videos</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {VIDEOS.map((video) => (
-              <div key={video.title} className="group">
-                <div className="aspect-video rounded-2xl relative overflow-hidden mb-3 bg-slate-900">
-                  <Image
-                    src={video.image}
-                    alt={video.alt}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover opacity-80 group-hover:opacity-90 transition-opacity"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                    <PlayCircle className="w-12 h-12 text-white/80 group-hover:text-white group-hover:scale-110 transition-all" />
-                  </div>
-                </div>
-                <p className="font-bold text-slate-900 text-sm line-clamp-2">{video.title}</p>
-              </div>
-            ))}
+          <div className="mb-10">
+            <p className="text-secondary font-bold uppercase tracking-[0.2em] text-xs mb-2 text-primary">
+              The people behind Inshuti Connect
+            </p>
+            <h2 className="text-3xl md:text-4xl font-black text-violet">Meet your team</h2>
+            <p className="text-slate-500 font-medium mt-3 max-w-xl leading-relaxed">
+              Trained medical students who review your questions and provide accurate, non-judgmental SRH answers. Every response is private.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="group relative rounded-2xl overflow-hidden shadow-sm border border-slate-100 aspect-[4/3]">
+              <Image
+                src="/images/team-group.jpeg"
+                alt="Inshuti Connect medical student group"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
+              <p className="absolute bottom-4 left-4 right-4 text-white font-bold text-sm leading-snug">
+                The team behind every answer
+              </p>
+            </div>
+
+            <div className="group relative rounded-2xl overflow-hidden shadow-sm border border-slate-100 aspect-[4/3]">
+              <Image
+                src="/images/team-students.jpeg"
+                alt="Inshuti Connect student responders in white lab coats"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
+              <p className="absolute bottom-4 left-4 right-4 text-white font-bold text-sm leading-snug">
+                Student responders, ready to help
+              </p>
+            </div>
+
+            <div className="group relative rounded-2xl overflow-hidden shadow-sm border border-slate-100 aspect-[4/3]">
+              <Image
+                src="/images/team-outreach.jpeg"
+                alt="Inshuti Connect community outreach event"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                style={{ objectPosition: "50% 68%" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
+              <p className="absolute bottom-4 left-4 right-4 text-white font-bold text-sm leading-snug">
+                Community SRH outreach in action
+              </p>
+            </div>
+
+            <div className="group relative rounded-2xl overflow-hidden shadow-sm border border-slate-100 aspect-[4/3]">
+              <Image
+                src="/images/team-cohort.jpeg"
+                alt="ASOME medical student cohort"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                style={{ objectPosition: "50% 30%" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
+              <p className="absolute bottom-4 left-4 right-4 text-white font-bold text-sm leading-snug">
+                The ASOME cohort powering Inshuti Connect
+              </p>
+            </div>
           </div>
         </SiteContainer>
       </section>
@@ -371,7 +405,7 @@ export default function Home() {
                 SRH questions shouldn&apos;t cost you your privacy
               </h2>
               <p className="text-lg text-slate-600 font-medium leading-relaxed">
-                Many students avoid asking about sexual health because of stigma or fear of being identified. Inshuti Connect is built for anonymous SRH support — no names required.
+                Many students avoid asking about sexual health because of stigma or fear of being identified. Inshuti Connect is built for anonymous SRH support. No names required.
               </p>
               <Link
                 href="/ask"
@@ -402,7 +436,7 @@ export default function Home() {
           <div className="bg-slate-900 text-white rounded-3xl p-8 md:p-12 overflow-hidden relative">
             <div className="absolute top-0 right-0 w-72 h-72 bg-primary/30 blur-[80px] rounded-full pointer-events-none" />
             <div className="relative z-10 max-w-2xl mx-auto text-center">
-              <h2 className="text-2xl md:text-4xl font-black mb-4">Stay in touch</h2>
+              <h2 className="text-2xl md:text-4xl font-black mb-4 text-violet">Stay in touch</h2>
               <p className="text-slate-400 mb-8 font-medium">
                 SRH tips and updates from Inshuti Connect (coming soon).
               </p>

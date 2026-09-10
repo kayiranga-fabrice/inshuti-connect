@@ -11,7 +11,7 @@ export default function InstallPage() {
   return (
     <PageShell title="Install Inshuti Connect">
       <p className="text-slate-600 font-medium mb-8 max-w-2xl leading-relaxed -mt-4">
-        Install works like an app — no app store needed. Quick access to SRH chatbot, ask-a-question, and urgent help.
+        Install works like an app. No app store needed. Quick access to SRH chatbot, ask-a-question, and urgent help.
       </p>
       <InstallGuide />
       <p className="mt-10 text-sm text-slate-500">

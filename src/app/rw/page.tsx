@@ -117,16 +117,16 @@ export default function KinyarwandaPage() {
               <h3 className="text-2xl font-black mb-4">2. Umutekano &amp; Ubufasha bwihuse</h3>
               <p className="text-slate-500 font-medium leading-relaxed mb-6">
                 Niba uri mu kaga, wabaye uwahukanywe n&apos;ihohoterwa rishingiye ku gitsina, cyangwa ukeneye ubuvuzi
-                bwihuse — koresha imirongo yacu.
+                bwihuse. Koresha imirongo yacu.
               </p>
               <ul className="space-y-4 mb-8 text-sm font-bold text-slate-700">
                 <li className="flex items-center gap-3">
                   <span className="w-2.5 h-2.5 rounded-full bg-primary" />
-                  GBV — 3512
+                  GBV: 3512
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="w-2.5 h-2.5 rounded-full bg-primary" />
-                  Polisi — 112
+                  Polisi: 112
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="w-2.5 h-2.5 rounded-full bg-primary" />

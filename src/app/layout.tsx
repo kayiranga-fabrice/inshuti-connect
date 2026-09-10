@@ -1,20 +1,30 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat } from "next/font/google";
+import { Montserrat, DM_Sans } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PwaProvider } from "@/components/PwaProvider";
+import { CartProvider } from "@/lib/cart-context";
+import { ThemeProvider } from "@/lib/theme-provider";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["700", "800", "900"],
   variable: "--font-montserrat",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-dm-sans",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Inshuti Connect | Anonymous SRH Support for Students",
-  description: "Anonymous sexual and reproductive health (SRH) support for students in Rwanda — ask questions, use the chatbot, get SMS tips.",
+  description: "Anonymous sexual and reproductive health (SRH) support for students in Rwanda. Ask questions, use the chatbot, get SMS tips.",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
@@ -22,8 +32,9 @@ export const metadata: Metadata = {
     statusBarStyle: "default",
   },
   icons: {
-    icon: "/icons/icon-192.svg",
-    apple: "/icons/icon-512.svg",
+    icon: "/images/inshuti-logo.png",
+    apple: "/images/inshuti-logo.png",
+    shortcut: "/images/inshuti-logo.png",
   },
 };
 
@@ -39,18 +50,37 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={montserrat.variable}>
-      <body className={`${montserrat.className} font-sans antialiased bg-white text-slate-900`}>
+    <html lang="en" className={`${montserrat.variable} ${dmSans.variable}`} suppressHydrationWarning>
+      <body className={`${dmSans.className} font-sans antialiased bg-[#FAF7F4] text-slate-900`}>
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold"
         >
           Skip to main content
         </a>
-        <SiteHeader />
-        <main id="main-content">{children}</main>
-        <SiteFooter />
+        <ThemeProvider>
+          <CartProvider>
+            <SiteHeader />
+            <main id="main-content">{children}</main>
+            <SiteFooter />
+          </CartProvider>
+        </ThemeProvider>
         <PwaProvider />
+
+        {/* Google Translate — hidden widget, driven by LanguageSelector */}
+        <div id="google_translate_element" style={{ display: "none" }} />
+        <Script id="gt-init" strategy="afterInteractive">{`
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+              { pageLanguage: 'en', includedLanguages: 'rw,fr,sw', autoDisplay: false },
+              'google_translate_element'
+            );
+          }
+        `}</Script>
+        <Script
+          src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

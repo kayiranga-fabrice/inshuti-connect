@@ -20,7 +20,7 @@ export default function ChatbotPage() {
     {
       id: 'welcome',
       sender: 'bot',
-      text: "Hello! I am your Inshuti SRH Assistant. I can help with menstruation, period pain, contraception, pregnancy questions, STIs, consent, and puberty — anonymously. Tap a topic below or type your question.",
+      text: "Hello! I am your Inshuti SRH Assistant. I can help with menstruation, period pain, contraception, pregnancy questions, STIs, consent, and puberty. All questions are anonymous. Tap a topic below or type your question.",
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }
   ]);

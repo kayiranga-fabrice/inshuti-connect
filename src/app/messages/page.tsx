@@ -45,7 +45,7 @@ export default function MessagesPage() {
   return (
     <PageShell title="SRH tips by SMS">
       <p className="text-slate-600 font-medium mb-8 max-w-2xl leading-relaxed -mt-4">
-        Students on basic phones can get short SRH tips by text — contraception, STIs, consent, and more.
+        Students on basic phones can get short SRH tips by text: contraception, STIs, consent, and more.
         No smartphone required once SMS is connected. Sign up below.
       </p>
 
@@ -59,7 +59,7 @@ export default function MessagesPage() {
             Sign up for automated tips
           </h2>
           <p className="text-slate-500 text-sm font-medium">
-            Rwanda mobile only. We store your number securely to send tips — not for marketing spam.
+            Rwanda mobile only. We store your number securely to send tips, not for marketing.
           </p>
 
           <div>

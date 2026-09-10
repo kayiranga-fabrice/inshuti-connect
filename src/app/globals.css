@@ -7,8 +7,13 @@
   --secondary: #B2D8C6;
   --accent: #2E7D32;
   --urgent: #E30613;
-  --background: #ffffff;
+  --background: #FAF7F4;
   --foreground: #1a1a1a;
+}
+
+html {
+  font-size: 15px;
+  scroll-behavior: smooth;
 }
 
 html,
@@ -23,8 +28,18 @@ body {
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
 }
 
 .bg-reachout-purple {
@@ -55,4 +70,89 @@ body {
 
 .link-accent {
   @apply text-primary font-black uppercase tracking-wide;
+}
+
+/* ── Google Translate — hide default UI, keep functionality ── */
+.goog-te-banner-frame,
+.goog-te-gadget,
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.goog-tooltip,
+.goog-tooltip-card {
+  display: none !important;
+}
+body {
+  top: 0 !important;
+  position: static !important;
+}
+.skiptranslate {
+  display: none !important;
+}
+
+/* ── Dark mode overrides ── */
+html.dark {
+  --background: #0d1f18;
+  --foreground: #e8f0ec;
+}
+
+html.dark body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+html.dark .bg-white {
+  background-color: #162a20 !important;
+}
+
+html.dark .bg-slate-50 {
+  background-color: #1a3028 !important;
+}
+
+html.dark .bg-\[#FAF7F4\] {
+  background-color: var(--background) !important;
+}
+
+html.dark .text-slate-900 {
+  color: #e8f0ec !important;
+}
+
+html.dark .text-slate-800 {
+  color: #d0e0d8 !important;
+}
+
+html.dark .text-slate-700 {
+  color: #b8cfc6 !important;
+}
+
+html.dark .text-slate-600 {
+  color: #9bbcb0 !important;
+}
+
+html.dark .text-slate-500 {
+  color: #7aa699 !important;
+}
+
+html.dark .border-slate-100 {
+  border-color: #1e3a2e !important;
+}
+
+html.dark .border-slate-200 {
+  border-color: #234033 !important;
+}
+
+html.dark .reachout-card {
+  background-color: #162a20 !important;
+  border-color: #1e3a2e !important;
+}
+
+html.dark header.bg-white\/95 {
+  background-color: rgba(13, 31, 24, 0.95) !important;
+}
+
+html.dark .bg-\[var\(--background\)\] {
+  background-color: var(--background) !important;
+}
+
+html.dark .text-violet {
+  color: #a78bfa !important;
 }
