@@ -23,7 +23,7 @@ export function SiteFooter() {
                 <img
                   src="/images/inshuti-logo.png"
                   alt="Inshuti Connect"
-                  className="h-12 w-auto"
+                  className="h-12 w-auto brightness-0 invert"
                 />
               </div>
               <p className="text-slate-400 max-w-xs mb-6 leading-relaxed text-sm">

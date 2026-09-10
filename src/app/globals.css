@@ -12,8 +12,12 @@
 }
 
 html {
-  font-size: 15px;
+  font-size: 13px; /* mobile */
   scroll-behavior: smooth;
+}
+
+@media (min-width: 768px) {
+  html { font-size: 15px; } /* tablet + desktop */
 }
 
 html,
@@ -28,17 +32,17 @@ body {
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-family: var(--font-nunito), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  line-height: 1.65;
-  letter-spacing: -0.01em;
+  line-height: 1.6;
+  letter-spacing: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-montserrat), system-ui, sans-serif;
-  letter-spacing: -0.03em;
+  font-family: var(--font-roboto), system-ui, sans-serif;
+  letter-spacing: -0.02em;
   line-height: 1.15;
 }
 

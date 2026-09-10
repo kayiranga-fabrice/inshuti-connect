@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat, DM_Sans } from "next/font/google";
+import { Roboto, Nunito } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -8,17 +8,17 @@ import { PwaProvider } from "@/components/PwaProvider";
 import { CartProvider } from "@/lib/cart-context";
 import { ThemeProvider } from "@/lib/theme-provider";
 
-const montserrat = Montserrat({
+const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["700", "800", "900"],
-  variable: "--font-montserrat",
+  weight: ["700", "900"],
+  variable: "--font-roboto",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const nunito = Nunito({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-dm-sans",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-nunito",
   display: "swap",
 });
 
@@ -50,8 +50,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${dmSans.variable}`} suppressHydrationWarning>
-      <body className={`${dmSans.className} font-sans antialiased bg-[#FAF7F4] text-slate-900`}>
+    <html lang="en" className={`${roboto.variable} ${nunito.variable}`} suppressHydrationWarning>
+      <body className={`${nunito.className} font-sans antialiased bg-[#FAF7F4] text-slate-900`}>
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold"

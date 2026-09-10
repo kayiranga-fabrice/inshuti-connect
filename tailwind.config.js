@@ -24,8 +24,8 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
-        display: ["var(--font-montserrat)", "system-ui", "sans-serif"],
+        sans: ["var(--font-nunito)", "system-ui", "sans-serif"],
+        display: ["var(--font-roboto)", "system-ui", "sans-serif"],
       },
     },
   },
