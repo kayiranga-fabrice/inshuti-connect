@@ -264,7 +264,7 @@ export default function Home() {
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
-                <h4 className="text-xl font-black leading-snug group-hover:text-primary transition-colors underline decoration-secondary decoration-4 underline-offset-4">
+                <h4 className="text-xl font-black leading-snug text-slate-900 transition-colors underline decoration-violet decoration-4 underline-offset-4">
                   {article.title}
                 </h4>
                 <p className="mt-2 text-slate-500 text-sm font-medium leading-relaxed line-clamp-3">
