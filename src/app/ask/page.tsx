@@ -56,15 +56,7 @@ function AskPageContent() {
     try {
       const { error: supabaseError } = await supabase
         .from('questions')
-        .insert([
-          {
-            message,
-            category,
-            age_range: ageRange || null,
-            code,
-            status: 'pending'
-          }
-        ]);
+        .insert([{ message, category, age_range: ageRange || null, code, status: 'pending' }]);
 
       if (supabaseError) throw supabaseError;
 

@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
-import { Search, Loader2, MessageSquare, Clock, CheckCircle2, AlertCircle, ArrowLeft, Key, Lock } from 'lucide-react';
-import Link from 'next/link';
 
 type Question = {
   id: string;
@@ -14,6 +12,8 @@ type Question = {
   created_at: string;
   code: string;
 };
+import { Search, Loader2, MessageSquare, Clock, CheckCircle2, AlertCircle, ArrowLeft, Key, Lock } from 'lucide-react';
+import Link from 'next/link';
 
 export default function CheckPage() {
   const [code, setCode] = useState('');
@@ -38,7 +38,7 @@ export default function CheckPage() {
 
       if (supabaseError) {
         if (supabaseError.code === 'PGRST116') {
-          setError('We couldn\'t find any question with that code. Please check and try again.');
+          setError("We couldn't find any question with that code. Please check and try again.");
         } else {
           throw supabaseError;
         }

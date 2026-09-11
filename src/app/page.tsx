@@ -126,6 +126,85 @@ export default function Home() {
         </SiteContainer>
       </section>
 
+      {/* ── Traction stats ── */}
+      <section className="bg-primary py-10 md:py-12">
+        <SiteContainer>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-white text-center">
+            {[
+              { value: "135", label: "Medical students\nready to answer" },
+              { value: "800+", label: "Questions\nanswered" },
+              { value: "< 1hr", label: "Average\nresponse time" },
+              { value: "4", label: "Active\ncampuses" },
+            ].map((stat) => (
+              <div key={stat.label} className="flex flex-col items-center gap-1">
+                <span className="text-3xl md:text-4xl font-black text-secondary leading-none">
+                  {stat.value}
+                </span>
+                <span className="text-white/60 text-xs font-bold uppercase tracking-wider leading-snug whitespace-pre-line">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </SiteContainer>
+      </section>
+
+      {/* ── Testimonials ── */}
+      <section className="py-14 md:py-20 bg-[#FAF7F4]">
+        <SiteContainer>
+          <div className="mb-10 text-center">
+            <p className="text-xs font-black uppercase tracking-widest text-violet mb-2">Real stories</p>
+            <h2 className="text-2xl md:text-3xl font-black text-slate-900">
+              Young adults who found answers
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Testimonial 1 — Kinyarwanda */}
+            <div className="bg-white rounded-3xl p-7 border border-slate-100 shadow-sm flex flex-col gap-4">
+              <span className="text-4xl font-black text-secondary leading-none">"</span>
+              <p className="text-slate-800 font-semibold leading-relaxed text-sm">
+                Inshuti Connect yansobanuriye byinshi ku mihango yange. Natekerezaga ko ari ikibazo gikomeye, ariko bamfashije gusobanukirwa ko ni bisanzwe kandi hari uburyo bwinshi nakoresha kugirango nite kubuzima bwange.
+              </p>
+              <p className="text-slate-400 text-xs font-bold italic leading-relaxed">
+                "Inshuti Connect explained a lot to me about my cycle. I thought something was seriously wrong, but they helped me understand it's normal and that there are many ways I can take care of my health."
+              </p>
+              <div className="mt-auto pt-4 border-t border-slate-50 flex items-center justify-between">
+                <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Anonymous</span>
+                <span className="bg-secondary/30 text-primary text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full">Mihango</span>
+              </div>
+            </div>
+
+            {/* Testimonial 2 — Kinyarwanda */}
+            <div className="bg-white rounded-3xl p-7 border border-slate-100 shadow-sm flex flex-col gap-4">
+              <span className="text-4xl font-black text-violet leading-none">"</span>
+              <p className="text-slate-800 font-semibold leading-relaxed text-sm">
+                Ntibyari byoroshye kuba nabwira ababyeyi bange ko nasamye numvaga bantonganya bakanangaye. Nabajije Inshuti Connect maze baransubiza vuba kandi ntaciriwe urubanza. Bandinda gutwita bidateganijwe, ubu nakomeje amashuri.
+              </p>
+              <p className="text-slate-400 text-xs font-bold italic leading-relaxed">
+                "It wasn't easy to tell my parents I was sexually active — I feared they'd scold and judge me. Inshuti Connect replied fast, without judgment. They helped me avoid an unplanned pregnancy, and I'm still in school."
+              </p>
+              <div className="mt-auto pt-4 border-t border-slate-50 flex items-center justify-between">
+                <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Anonymous</span>
+                <span className="bg-violet/10 text-violet text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full">Gutwita</span>
+              </div>
+            </div>
+
+            {/* Testimonial 3 — English */}
+            <div className="bg-primary rounded-3xl p-7 flex flex-col gap-4">
+              <span className="text-4xl font-black text-secondary leading-none">"</span>
+              <p className="text-white font-semibold leading-relaxed text-sm">
+                I was too ashamed to ask a teacher or anyone at home. Inshuti Connect answered me in less than an hour, with real information I could trust. I didn't feel alone anymore.
+              </p>
+              <div className="mt-auto pt-4 border-t border-white/10 flex items-center justify-between">
+                <span className="text-[10px] font-black uppercase tracking-widest text-white/40">Anonymous</span>
+                <span className="bg-white/10 text-secondary text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full">STIs</span>
+              </div>
+            </div>
+          </div>
+        </SiteContainer>
+      </section>
+
       {/* Other ways we can help — overlaps hero like ReachOut */}
       <SiteContainer className="-mt-10 md:-mt-12 mb-14 md:mb-16 relative z-20">
         <h2 className="sr-only">Other ways we can help</h2>

@@ -2,12 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
-import { 
-  Lock, LayoutDashboard, MessageSquare, 
-  Clock, CheckCircle2, Send, LogOut,
-  Search, Filter, ChevronRight, Sparkles,
-  Trash2
-} from 'lucide-react';
 
 type Question = {
   id: string;
@@ -18,6 +12,12 @@ type Question = {
   response: string | null;
   created_at: string;
 };
+import { 
+  Lock, LayoutDashboard, MessageSquare, 
+  Clock, CheckCircle2, Send, LogOut,
+  Search, Filter, ChevronRight, Sparkles,
+  Trash2
+} from 'lucide-react';
 
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -42,9 +42,7 @@ export default function AdminPage() {
       .select('*')
       .order('created_at', { ascending: false });
 
-    if (!error && data) {
-      setQuestions(data);
-    }
+    if (!error && data) setQuestions(data);
     setIsLoading(false);
   };
 
@@ -60,11 +58,8 @@ export default function AdminPage() {
       .update({ response, status: 'answered' })
       .eq('id', id);
 
-    if (!error) {
-      fetchQuestions();
-    } else {
-      alert('Failed to update response');
-    }
+    if (!error) fetchQuestions();
+    else alert('Failed to update response');
   };
 
   const handleDeleteQuestion = async (id: string) => {
@@ -75,11 +70,8 @@ export default function AdminPage() {
       .delete()
       .eq('id', id);
 
-    if (!error) {
-      fetchQuestions();
-    } else {
-      alert('Failed to delete question');
-    }
+    if (!error) fetchQuestions();
+    else alert('Failed to delete question');
   };
 
   if (!isAuthenticated) {
