@@ -11,12 +11,22 @@ const LANGUAGES = [
 ];
 
 function triggerGoogleTranslate(langCode: string) {
-  // Restoring English: clear the googtrans cookie and reload — the widget
-  // doesn't reliably revert via the select element alone.
   if (langCode === "") {
-    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${location.hostname}`;
-    window.location.reload();
+    // Set cookie to /en/en (translate English → English = no-op) on every
+    // possible domain variant so the script can't re-apply a previous language.
+    const host = location.hostname;
+    const base = "googtrans=/en/en; path=/";
+    document.cookie = base;
+    document.cookie = `${base}; domain=${host}`;
+    document.cookie = `${base}; domain=.${host}`;
+    // Strip host part to handle www vs apex mismatches (e.g. inshuticonnect.com)
+    const apex = host.replace(/^www\./, "");
+    if (apex !== host) {
+      document.cookie = `${base}; domain=${apex}`;
+      document.cookie = `${base}; domain=.${apex}`;
+    }
+    // Replace (not reload) so any #googtrans hash is also dropped from the URL
+    window.location.replace(location.pathname + location.search);
     return;
   }
 
