@@ -11,8 +11,16 @@ const LANGUAGES = [
 ];
 
 function triggerGoogleTranslate(langCode: string) {
-  // Google Translate creates a <select class="goog-te-combo"> inside the hidden widget.
-  // Setting its value and firing a change event translates the whole page in-place.
+  // Restoring English: clear the googtrans cookie and reload — the widget
+  // doesn't reliably revert via the select element alone.
+  if (langCode === "") {
+    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${location.hostname}`;
+    window.location.reload();
+    return;
+  }
+
+  // For all other languages, drive the hidden widget's select in-place.
   const attempt = (retries: number) => {
     const select = document.querySelector<HTMLSelectElement>(".goog-te-combo");
     if (select) {
